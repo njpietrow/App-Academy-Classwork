@@ -1,0 +1,73 @@
+body {
+  font-family: Arial, sans-serif;  
+  background-color: lightblue;
+}
+
+h1 {
+    font-size: 38;
+}
+
+h2 {
+    font-size: 32;
+}
+
+.ingredients-list {
+    list-style: square inside;
+}
+
+.cooking-directions{
+    list-style: lower-roman inside;
+}
+.cooking-directions li:nth-child(2n){
+    background-color: lightgrey;
+}
+
+header > img {
+    width: 100px;
+}
+
+ul > li > a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.user_review {
+    background-color: lightgreen;
+    font-family: monospace;
+    font-style: oblique;
+}
+
+h2 + .user_review {
+    border-top: 1px solid black;
+}
+
+input[type="radio"], select ,input[type="submit"]  {
+    cursor:pointer;
+    outline: none;
+}
+
+input:last-child {
+    background-color: gold;
+
+}
+
+input:last-child:hover {
+    background-color: goldenrod;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    background-image: url(./stars.png);
+    width: 25px;
+    height: 25px;
+}
+
+input[type="radio"]:hover {
+    background-position: 30px 60px;
+}
+
+input[type="radio"]:checked {
+    background-position: 30px 30px;
+}
+
+
