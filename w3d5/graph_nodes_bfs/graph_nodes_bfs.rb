@@ -19,7 +19,10 @@ def bfs(starting_node, target_value)
     el = queue.deq
     return el if el.val == target_value
     el.neighbors.each do |node|
-      queue.enq(node) if !set.include?(node.val)
+      if !set.include?(node.val)
+        queue.enq(node) 
+        set << node.val
+      end
     end
   end
   nil
@@ -36,5 +39,5 @@ c.neighbors = [b, d]
 e.neighbors = [a]
 f.neighbors = [e]
 
-p bfs(a, "b")
+p bfs(a, "b").val
 p bfs(a, "f")
