@@ -1,7 +1,6 @@
 require_relative "../PolyTreeNode/lib/00_tree_node.rb"
 
 class KnightPathFinder
-
     # select only positions from the array that are withing the 8x8 range.
     def self.valid_moves(pos) 
         row, col = pos
@@ -21,14 +20,24 @@ class KnightPathFinder
     
     end
 
-    def initialize(pos)
-        @root_node = PolyTreeNode.new(pos)
-        @considered_positions = [@root_node]
+    def initialize(start_pos)
+        @considered_positions = [PolyTreeNode.new(start_pos)]
+    end
+
+    def print_considered_positions
+        p get_considered_values
+        p get_considered_values.length
+    end
+
+    def get_considered_values
+        @considered_positions.map do |node|
+            node.value
+        end
     end
 
     def new_move_positions(pos)
-        positions = KnightPathFinder.valid_positions(pos)
-        filtered = positions.select { |psn| !@considered_positions.include?(psn) }
+        positions = KnightPathFinder.valid_moves(pos)
+        filtered = positions.select { |psn| !get_considered_values.include?(psn.value) }
         @considered_positions += filtered
         filtered
     end
@@ -38,7 +47,7 @@ class KnightPathFinder
     # add to queue, take next node from queue, until queue is empty
     def build_move_tree 
         moves = []
-        moves << @root_node
+        moves << @considered_positions.first
         until moves.empty?
             first_move = moves.shift
             new_move_positions(first_move.value).each do |child|
@@ -47,7 +56,11 @@ class KnightPathFinder
             end
         end
         nil
-    end
-
-    
+    end 
 end
+
+
+k = KnightPathFinder.new([0,0])
+k.print_considered_positions
+k.build_move_tree
+k.print_considered_positions
