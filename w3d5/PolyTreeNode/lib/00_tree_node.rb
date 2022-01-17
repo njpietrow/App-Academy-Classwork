@@ -1,5 +1,9 @@
+require_relative "search_module"
+
 class PolyTreeNode
+    include Searchable
     attr_accessor :value, :parent, :children
+    
     def initialize(value)
         @value = value
         @parent = nil
@@ -28,31 +32,7 @@ class PolyTreeNode
     end
 
     def remove_child(child_node)
-        raise "error" if !children.include?(child_node)
+        raise "error, this node is already not a child" if !children.include?(child_node)
         child_node.parent = nil
     end
-
-    def dfs(target_value)
-        return self if self == nil || value == target_value
-        children.each do |child|
-            result = child.dfs(target_value)
-            return result if result != nil
-        end
-        nil
-    end
-
-    def bfs(target_value)
-        queue = []
-        queue << self 
-        until queue.empty?
-            first_child = queue.shift
-            return first_child if first_child.value == target_value
-            first_child.children.each do |child|
-                queue << child
-            end
-        end
-        nil
-    end
-
-
 end

@@ -2,21 +2,26 @@ require_relative "../PolyTreeNode/lib/00_tree_node.rb"
 
 class KnightPathFinder
     # select only positions from the array that are withing the 8x8 range.
+    BOARD_LENGTH = 8
+    MOVES = [
+        [row + 1, col + 2],
+        [row - 1, col + 2],
+        [row + 1, col - 2],
+        [row - 1, col - 2],
+        [row + 2, col + 1],
+        [row + 2, col - 1],
+        [row - 2, col + 1],
+        [row - 2, col - 1]
+    ]
     def self.valid_moves(pos) 
         row, col = pos
-        moves = [
-            [row + 1, col + 2],
-            [row - 1, col + 2],
-            [row + 1, col - 2],
-            [row - 1, col - 2],
-            [row + 2, col + 1],
-            [row + 2, col - 1],
-            [row - 2, col + 1],
-            [row - 2, col - 1]
-        ]
-        moves
-            .select{|move| (move[0]<=7 && move[1]<=7) && (move[0]>=0 && move[1]>=0)  }
-            .map {|move| PolyTreeNode.new(move) }
+        selected = moves.select do |move| 
+            move[0]<= (BOARD_LENGTH - 1) &&
+            move[1]<= (BOARD_LENGTH - 1) &&
+            move[0]>=0 &&
+            move[1]>=0 
+        end
+        selected.map {|move| PolyTreeNode.new(move) }
     
     end
 
