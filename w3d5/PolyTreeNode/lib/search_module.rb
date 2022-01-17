@@ -20,4 +20,5 @@ module Searchable
     end
     nil
   end
+
 end
