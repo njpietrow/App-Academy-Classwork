@@ -29,13 +29,11 @@ class Manager < Employee
   def bonus(multiplier)
     total = 0
     queue = []
-    queue.push(self)
+    queue += self.employees
     until queue.empty?
       worker = queue.shift
-      worker.employees.each do |employee|
-        total += employee.salary
-        queue += employee.employees
-      end
+      total += worker.salary
+      queue += worker.employees
     end
     total * multiplier
   end
@@ -50,5 +48,5 @@ darren = Manager.new("darren","TA Manager",78000,[david,shawna],"ned")
 ned = Manager.new("ned","Founder",1000000,[darren])
 
 p ned.bonus(5) # => 500_000
-# p darren.bonus(4) # => 88_000
-# p david.bonus(3) # => 30_000
+p darren.bonus(4) # => 88_000
+p david.bonus(3) # => 30_000
