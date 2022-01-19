@@ -23,20 +23,18 @@ class Board
       raise "No piece at starting position."
     end
 
+    if !inbounds?(end_pos)
+      raise "End position not on board."
+    end
 
-  #see if its in bounds
-  #piece alread there
+    if self[end_pos].instance_of?(Piece) 
+      raise "End position filled with piece."
+    end
 
-
+    piece = self[start_pos]
+    self[start_pos] = nil
+    self[end_pos] = piece
   end
-
-
- 
-
-
-
-
-
 
   private
   attr_accessor :rows
@@ -49,10 +47,10 @@ class Board
     end
   end
 
-  def inbounds(pos)
+  def inbounds?(pos)
     row, col = pos
     row >= 0 && row <= 7 && col >= 0 && col <= 7
   end
 end
 
-p Board.new
+# p Board.new
