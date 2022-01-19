@@ -7,20 +7,30 @@ class Pawn < Piece
   end
 
   def moves
-    possible_moves = []
+    possible_steps = forward_steps
 
+    possible_steps.select! do |move|
+      new_pos = [pos.first + move.first, pos.last + move.last]
+      board[new_pos].empty?
+    end
+
+    possible_attacks = side_attacks
+
+    possible_attacks.select! do |move|
+      new_pos = [pos.first + move.first, pos.last + move.last]
+      opposite_color?(new_pos) && !board[new_pos].empty?
+    end
+
+    possible_steps + possible_attacks
   end
 
   private
   def forward_steps
     forward_moves = []
-    forward_dir # => [1,0] or [-1,0]
+    forward_moves << [forward_dir, 0]
     if at_start_row?
-      start_move = forward_dir[0]*2
-      forward_moves << forward_dir
+      start_move = forward_dir*2
       forward_moves << [start_move,0]
-    else
-      forward_moves << forward_dir
     end
     forward_moves
   end
@@ -32,14 +42,14 @@ class Pawn < Piece
   end
 
   def side_attacks
-    
+    [[forward_dir, 1], [forward_dir, -1]]
   end
 
   def forward_dir
     if self.color == :white
-      [1,0]
+      1
     else
-      [-1,0]
+      -1
     end
   end
 
