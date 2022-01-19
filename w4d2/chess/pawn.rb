@@ -1,4 +1,5 @@
 require_relative "piece"
+require "byebug"
 
 class Pawn < Piece
 
@@ -7,21 +8,19 @@ class Pawn < Piece
   end
 
   def moves
-    possible_steps = forward_steps
+    potential_moves = []
 
-    possible_steps.select! do |move|
+    forward_steps.each do |move|
       new_pos = [pos.first + move.first, pos.last + move.last]
-      board[new_pos].empty?
+      potential_moves << new_pos if board[new_pos].empty?
     end
 
-    possible_attacks = side_attacks
-
-    possible_attacks.select! do |move|
+    side_attacks.each do |move|
       new_pos = [pos.first + move.first, pos.last + move.last]
-      opposite_color?(new_pos) && !board[new_pos].empty?
+      potential_moves << new_pos if (opposite_color?(new_pos) && !board[new_pos].empty?)
     end
 
-    possible_steps + possible_attacks
+    potential_moves
   end
 
   private

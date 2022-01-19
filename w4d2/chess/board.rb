@@ -65,13 +65,13 @@ class Board
         col = -1
         row.map! do |ele| 
           col +=1
-          Rook.new(:white, self, [row_index, col]) 
+          Pawn.new(:white, self, [row_index, col]) 
         end
       elsif row_index > 5
         col = -1
         row.map! do |ele| 
           col +=1
-          Bishop.new(:black, self, [row_index, col]) 
+          Pawn.new(:black, self, [row_index, col]) 
         end
       end
     end
@@ -81,12 +81,11 @@ class Board
 end
 
 b = Board.new 
-rook1 = b[[1,0]]
-p rook1.moves
-bishop1 = b[[6,0]]
-p bishop1.moves
+pawn = b[[6,0]]
+# p pawn.moves
 
-b.move_piece([1,0],[2,0])
-rook1 = b[[2,0]]
-p rook1.moves
+b.print_board
+b.move_piece([6,0],[2,0])
+pawn = b[[2,0]]
+p pawn.moves
 b.print_board
