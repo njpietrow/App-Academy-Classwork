@@ -42,10 +42,12 @@ module Slideable
     # iteratively increment values for row and/or col
     # for each increment, check if piece is there/inbounds.
     # return array of all possible positions
+    # puts " pos is #{pos}"
     new_pos = pos.dup
     possible_moves = []
 
     while true
+      # puts " new_pos is #{new_pos}"
       new_pos = [new_pos[0] + change_in_row , new_pos[1] + change_in_col]
       if board.inbounds?(new_pos) 
         if board[new_pos].empty?

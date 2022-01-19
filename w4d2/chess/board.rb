@@ -1,10 +1,14 @@
 # require_relative "piece"
+
 require_relative "null_piece"
 require_relative "rook"
 require_relative "bishop"
 require_relative "queen"
 require_relative "knight"
 require_relative "king"
+
+require "pp"
+
 
 class Board
 
@@ -38,11 +42,20 @@ class Board
     end
 
     self[start_pos], self[end_pos] = self[end_pos], self[start_pos]
+    self[end_pos].pos = end_pos
   end
 
   def inbounds?(pos)
     row, col = pos
     row >= 0 && row <= 7 && col >= 0 && col <= 7
+  end
+
+  def print_board
+    @rows.each do |row|
+      row.map! {|ele| ele.to_s}
+      print row
+      puts
+    end
   end
 
   private
@@ -51,9 +64,17 @@ class Board
   def fill_board
     @rows.each_with_index do |row, row_index|
       if row_index < 2
-        row.map! {|ele, col| Rook.new("white", self, [row_index, col])}
+        col = -1
+        row.map! do |ele| 
+          col +=1
+          Rook.new("white", self, [row_index, col]) 
+        end
       elsif row_index > 5
-        row.map! {|ele, col| Bishop.new("black", self, [row_index, col])}
+        col = -1
+        row.map! do |ele| 
+          col +=1
+          Bishop.new("black", self, [row_index, col]) 
+        end
       end
     end
   end
@@ -61,4 +82,13 @@ class Board
   
 end
 
-p Board.new
+b = Board.new 
+rook1 = b[[1,0]]
+p rook1.moves
+bishop1 = b[[6,0]]
+p bishop1.moves
+
+b.move_piece([1,0],[2,0])
+rook1 = b[[2,0]]
+p rook1.moves
+b.print_board

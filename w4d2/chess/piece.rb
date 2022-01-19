@@ -15,9 +15,15 @@ class Piece
     #uses move_into_check, rejects check moves
   end
 
+  def empty?
+    false
+  end
 
+  def pos=(val)
+    @pos = val
+  end
+
+  
   protected
   attr_reader :pos, :board, :color
 end
-
-p Piece.new("white", "board", [0,0])

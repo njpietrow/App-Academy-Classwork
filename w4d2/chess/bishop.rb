@@ -6,7 +6,7 @@ class Bishop < Piece
   
   # todo - symbol method.
   def symbol
-    "♗".colorize(color)
+    "♗"
   end
 
   private

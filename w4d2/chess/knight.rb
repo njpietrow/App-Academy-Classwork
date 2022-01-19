@@ -12,7 +12,7 @@ class Knight < Piece
     [-1,-2]
   ]
 
-  def moves
+  def moves #todo for knight and king. also do pawn class.
     move_diffs
   end
   

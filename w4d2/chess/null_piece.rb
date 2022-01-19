@@ -4,11 +4,10 @@ require_relative "piece"
 class NullPiece < Piece
   include Singleton
 
-  attr_reader :empty, :symbol
+  attr_reader :symbol
 
   def initialize
-    @empty = true
-    @symbol = ""
+    @symbol = " "
   end
 
   def color
@@ -17,5 +16,9 @@ class NullPiece < Piece
 
   def moves
     []
+  end
+
+  def empty?
+    true
   end
 end
