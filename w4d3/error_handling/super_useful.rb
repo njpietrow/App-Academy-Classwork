@@ -1,6 +1,9 @@
 # PHASE 2
 def convert_to_int(str)
+  # raise "please enter an integer in number format" unless str.is_a?(Integer)
   Integer(str)
+rescue ArgumentError => e
+  puts "#{e} Please enter an integer in number format"
 end
 
 # PHASE 3
@@ -9,8 +12,10 @@ FRUITS = ["apple", "banana", "orange"]
 def reaction(maybe_fruit)
   if FRUITS.include? maybe_fruit
     puts "OMG, thanks so much for the #{maybe_fruit}!"
-  else 
+  elsif maybe_fruit == "coffee" 
     raise StandardError 
+  else
+    puts "monster was not happy"
   end 
 end
 
@@ -20,6 +25,8 @@ def feed_me_a_fruit
   puts "Feed me a fruit! (Enter the name of a fruit:)"
   maybe_fruit = gets.chomp
   reaction(maybe_fruit) 
+rescue
+  retry 
 end  
 
 # PHASE 4
