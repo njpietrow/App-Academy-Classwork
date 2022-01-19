@@ -61,17 +61,44 @@ class Board
 
   def fill_board
     @rows.each_with_index do |row, row_index|
-      if row_index < 2
-        col = -1
-        row.map! do |ele| 
-          col +=1
-          Pawn.new(:white, self, [row_index, col]) 
+      case row_index
+      when 0
+        row.each_with_index do |ele, col_idx| 
+          case col_idx
+          when 0, 7
+            self[[row_index, col_idx]] = Rook.new(:white, self, [row_index, col_idx]) 
+          when 1,6
+            self[[row_index, col_idx]] = Knight.new(:white, self, [row_index, col_idx]) 
+          when 2,5
+            self[[row_index, col_idx]] = Bishop.new(:white, self, [row_index, col_idx]) 
+          when 3
+            self[[row_index, col_idx]] = King.new(:white, self, [row_index, col_idx])
+          when 4
+            self[[row_index, col_idx]] = Queen.new(:white, self, [row_index, col_idx])
+          end
         end
-      elsif row_index > 5
-        col = -1
-        row.map! do |ele| 
-          col +=1
-          Pawn.new(:black, self, [row_index, col]) 
+      when 1
+        row.each_with_index do |ele, col_idx| 
+          self[[row_index, col_idx]] = Pawn.new(:white, self, [row_index, col_idx]) 
+        end
+      when 6
+        row.each_with_index do |ele, col_idx| 
+          self[[row_index, col_idx]] = Pawn.new(:black, self, [row_index, col_idx]) 
+        end
+      when 7
+        row.each_with_index do |ele, col_idx| 
+          case col_idx
+          when 0, 7
+            self[[row_index, col_idx]] = Rook.new(:black, self, [row_index, col_idx]) 
+          when 1,6
+            self[[row_index, col_idx]] = Knight.new(:black, self, [row_index, col_idx]) 
+          when 2,5
+            self[[row_index, col_idx]] = Bishop.new(:black, self, [row_index, col_idx]) 
+          when 3
+            self[[row_index, col_idx]] = King.new(:black, self, [row_index, col_idx])
+          when 4
+            self[[row_index, col_idx]] = Queen.new(:black, self, [row_index, col_idx])
+          end
         end
       end
     end
@@ -85,7 +112,7 @@ pawn = b[[6,0]]
 # p pawn.moves
 
 b.print_board
-b.move_piece([6,0],[2,0])
-pawn = b[[2,0]]
+b.move_piece([6,0],[2,1])
+# pawn = b[[2,1]]
 p pawn.moves
 b.print_board

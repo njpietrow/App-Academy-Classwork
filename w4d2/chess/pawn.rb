@@ -12,12 +12,12 @@ class Pawn < Piece
 
     forward_steps.each do |move|
       new_pos = [pos.first + move.first, pos.last + move.last]
-      potential_moves << new_pos if board[new_pos].empty?
+      potential_moves << new_pos if (board[new_pos].empty? && board.inbounds?(new_pos))
     end
 
     side_attacks.each do |move|
       new_pos = [pos.first + move.first, pos.last + move.last]
-      potential_moves << new_pos if (opposite_color?(new_pos) && !board[new_pos].empty?)
+      potential_moves << new_pos if (opposite_color?(new_pos) && !board[new_pos].empty? && board.inbounds?(new_pos)) 
     end
 
     potential_moves
