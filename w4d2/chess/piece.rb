@@ -1,4 +1,3 @@
-require_relative "board"
 require 'colorize'
 
 class Piece
@@ -13,10 +12,12 @@ class Piece
   end
 
   def valid_moves
-
+    #uses move_into_check, rejects check moves
   end
 
 
   protected
   attr_reader :pos, :board, :color
 end
+
+p Piece.new("white", "board", [0,0])

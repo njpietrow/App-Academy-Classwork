@@ -1,6 +1,7 @@
 require "singleton"
+require_relative "piece"
 
-class NullPiece
+class NullPiece < Piece
   include Singleton
 
   attr_reader :empty, :symbol

@@ -47,7 +47,7 @@ module Slideable
 
     while true
       new_pos = [new_pos[0] + change_in_row , new_pos[1] + change_in_col]
-      if inbounds?(new_pos) 
+      if board.inbounds?(new_pos) 
         if board[new_pos].empty?
           possible_moves << new_pos
         elsif opposite_color?(new_pos)
@@ -65,10 +65,10 @@ module Slideable
   end
 
 
-  def inbounds?(pos)
-    row, col = pos
-    row >= 0 && row <= 7 && col >= 0 && col <= 7
-  end
+  # def inbounds?(pos)
+  #   row, col = pos
+  #   row >= 0 && row <= 7 && col >= 0 && col <= 7
+  # end
 
   def opposite_color?(new_pos)
     board[new_pos].color != self.color

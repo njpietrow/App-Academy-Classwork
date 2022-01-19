@@ -14,3 +14,4 @@ class Rook < Piece
     horizontal_dirs
   end
 end
+

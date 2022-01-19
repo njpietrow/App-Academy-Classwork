@@ -1,3 +1,5 @@
+require_relative "piece"
+
 class King < Piece
   MOVES = [
     [1,0],
