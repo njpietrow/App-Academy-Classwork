@@ -13,7 +13,8 @@ class King < Piece
   ]
 
   def moves
-    move_diffs
+    potential_moves = move_diffs
+    potential_moves.select { |move| board.inbounds?(move) && opposite_color?(move) }
   end
 
   def symbol

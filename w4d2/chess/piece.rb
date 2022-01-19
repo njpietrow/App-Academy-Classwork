@@ -26,4 +26,8 @@ class Piece
   
   protected
   attr_reader :pos, :board, :color
+
+  def opposite_color?(new_pos)
+    board[new_pos].color != self.color
+  end
 end

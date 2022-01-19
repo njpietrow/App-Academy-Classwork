@@ -12,9 +12,10 @@ class Knight < Piece
     [-1,-2]
   ]
 
-  def moves #todo for knight and king. also do pawn class.
-    move_diffs
-  end
+  def moves
+    potential_moves = move_diffs
+    potential_moves.select { |move| board.inbounds?(move) && opposite_color?(move) }
+  end  
   
   def symbol
     "♘"

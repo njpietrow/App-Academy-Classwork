@@ -71,8 +71,4 @@ module Slideable
   #   row, col = pos
   #   row >= 0 && row <= 7 && col >= 0 && col <= 7
   # end
-
-  def opposite_color?(new_pos)
-    board[new_pos].color != self.color
-  end
 end
