@@ -31,9 +31,7 @@ class Board
       raise "End position filled with piece."
     end
 
-    piece = self[start_pos]
-    self[start_pos] = nil
-    self[end_pos] = piece
+    self[start_pos], self[end_pos] = self[end_pos], self[start_pos]
   end
 
   private
