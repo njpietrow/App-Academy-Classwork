@@ -67,13 +67,13 @@ class Board
         col = -1
         row.map! do |ele| 
           col +=1
-          Rook.new("white", self, [row_index, col]) 
+          Rook.new(:white, self, [row_index, col]) 
         end
       elsif row_index > 5
         col = -1
         row.map! do |ele| 
           col +=1
-          Bishop.new("black", self, [row_index, col]) 
+          Bishop.new(:black, self, [row_index, col]) 
         end
       end
     end

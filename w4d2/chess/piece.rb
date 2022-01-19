@@ -7,7 +7,7 @@ class Piece
     @pos = pos
   end
 
-  def to_s
+  def to_s #can add color here.
     self.symbol
   end
 
