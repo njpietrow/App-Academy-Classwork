@@ -42,17 +42,26 @@ module Slideable
     # iteratively increment values for row and/or col
     # for each increment, check if piece is there/inbounds.
     # return array of all possible positions
-    row, col = pos
+    new_pos = pos.dup
     possible_moves = []
 
-    new_pos = [row + change_in_row , col + change_in_col]
-    if inbounds?(new_pos) && board[new_pos].empty?
-      #if color is null piece
-
+    while true
+      new_pos = [new_pos[0] + change_in_row , new_pos[1] + change_in_col]
+      if inbounds?(new_pos) 
+        if board[new_pos].empty?
+          possible_moves << new_pos
+        elsif opposite_color?(new_pos)
+          possible_moves << new_pos
+          break
+        else
+          break
+        end
+      else
+        break
+      end
     end
-      #opposite color valid to move
-      #own color not valid to move
 
+    possible_moves
   end
 
 

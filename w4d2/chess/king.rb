@@ -13,6 +13,10 @@ class King < Piece
   def moves
     move_diffs
   end
+
+  def symbol
+    "♔".colorize(color)
+  end
   
   protected
   def move_diffs
