@@ -10,6 +10,10 @@ class NullPiece
     @symbol = ""
   end
 
+  def color
+    ""
+  end
+
   def moves
     []
   end
