@@ -8,7 +8,7 @@ class Piece
   end
 
   def to_s #can add color here.
-    self.symbol
+    self.symbol.colorize(color)
   end
 
   def valid_moves

@@ -52,8 +52,7 @@ class Board
 
   def print_board
     @rows.each do |row|
-      row.map! {|ele| ele.to_s}
-      print row
+      row.each {|ele| print ele.to_s + " "}
       puts
     end
   end
