@@ -19,4 +19,18 @@ module Slideable
   def diagonal_dirs 
     DIAGONAL_DIRS
   end
+
+  def moves
+
+  end
+
+
+  private
+  def move_dirs
+    #overwritten by subclass
+  end
+
+  def grow_unblocked_moves_in_dir(dx, dy)
+    
+  end
 end

@@ -32,6 +32,15 @@ end
 # PHASE 4
 class BestFriend
   def initialize(name, yrs_known, fav_pastime)
+    unless yrs_known >= 5
+      raise ArgumentError.new "Cannot initialize a bestfriend if years known is less than five"
+    end
+    unless name.length > 0
+      raise ArgumentError.new "Please enter name for bestfriend with string length greater than zero"
+    end
+    unless fav_pastime.length > 0
+      raise ArgumentError.new "Please enter a pastime with string length greater than zero"
+    end
     @name = name
     @yrs_known = yrs_known
     @fav_pastime = fav_pastime
