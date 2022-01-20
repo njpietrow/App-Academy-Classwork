@@ -11,6 +11,7 @@ require_relative "pawn"
 
 class Board
 
+  attr_accessor :rows
 
   def initialize
     @rows = Array.new(8) {Array.new(8,NullPiece.instance)}
@@ -56,15 +57,7 @@ class Board
     row >= 0 && row <= 7 && col >= 0 && col <= 7
   end
 
-  def print_board
-    @rows.each do |row|
-      row.each {|ele| print ele.to_s + " "}
-      puts
-    end
-  end
-
   private
-  attr_accessor :rows
 
   def fill_board
     @rows.each_with_index do |row, row_index|

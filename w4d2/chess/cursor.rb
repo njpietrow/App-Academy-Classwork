@@ -89,6 +89,7 @@ class Cursor
   end
 
   def update_pos(diff)
-    cursor_pos = [cursor_pos.first + diff.first, cursor_pos.last + diff.last]
+    cursor_check = [cursor_pos.first + diff.first, cursor_pos.last + diff.last]
+    @cursor_pos = cursor_check if board.inbounds?(cursor_check)
   end
 end
