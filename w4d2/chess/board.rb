@@ -41,7 +41,6 @@ class Board
       raise ArgumentError.new("End position not on board.")
     end
 
-
     # need to check if end position is 
     #within the valid movset of the piece that is in the starting position
     if self[start_pos].color == self[end_pos].color
