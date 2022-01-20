@@ -1,6 +1,7 @@
 require 'colorize'
 
 class Piece
+  attr_reader :color
   def initialize(color, board, pos)
     @color = color
     @board = board
@@ -25,7 +26,7 @@ class Piece
 
   
   protected
-  attr_reader :pos, :board, :color
+  attr_reader :pos, :board
 
   def opposite_color?(new_pos)
     board[new_pos].color != self.color

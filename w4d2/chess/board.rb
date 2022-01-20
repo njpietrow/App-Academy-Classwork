@@ -1,4 +1,4 @@
-# require_relative "piece"
+
 
 require_relative "null_piece"
 require_relative "rook"
@@ -28,16 +28,23 @@ class Board
   end
 
   def move_piece(start_pos, end_pos)
+    if start_pos == end_pos
+      raise ArgumentError.new("Cannot move piece to the same position. Start = End")
+    end
+
     if self[start_pos].instance_of?(NullPiece) 
-      raise "No piece at starting position."
+      raise ArgumentError.new("No piece at starting position.")
     end
 
     if !inbounds?(end_pos)
-      raise "End position not on board."
+      raise ArgumentError.new("End position not on board.")
     end
 
-    if !self[end_pos].instance_of?(NullPiece) 
-      raise "End position filled with piece."
+
+    # need to check if end position is 
+    #within the valid movset of the piece that is in the starting position
+    if self[start_pos].color == self[end_pos].color
+      raise ArgumentError.new("End position filled with your own piece.")
     end
 
     self[start_pos], self[end_pos] = self[end_pos], self[start_pos]
@@ -107,12 +114,12 @@ class Board
   
 end
 
-b = Board.new 
-pawn = b[[6,0]]
-# p pawn.moves
+# b = Board.new 
+# pawn = b[[6,0]]
+# # p pawn.moves
 
-b.print_board
-b.move_piece([6,0],[2,1])
-# pawn = b[[2,1]]
-p pawn.moves
-b.print_board
+# b.print_board
+# b.move_piece([6,0],[2,1])
+# # pawn = b[[2,1]]
+# p pawn.moves
+# b.print_board
