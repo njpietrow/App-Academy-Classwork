@@ -15,3 +15,16 @@ class Array
     indicies
   end
 end
+
+def my_transpose(array)
+  (0...array.length).each do |i|
+    raise "Array is not square" if array.length != array[i].length
+  end
+  tranposed = Array.new(array.length) {Array.new(array.length)}
+  (0...array.length).each do |idx1|
+    (0...array.length).each do |idx2|
+      tranposed[idx2][idx1] = array[idx1][idx2]
+    end
+  end
+  tranposed
+end
