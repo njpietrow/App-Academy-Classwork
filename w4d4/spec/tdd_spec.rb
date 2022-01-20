@@ -57,4 +57,32 @@ describe "TDD Tests" do
       expect {stock_picker("hi mom")}.to raise_error("Please pass in an array")
     end
   end
+  describe "Towers of Hanoi" do 
+    let(:towers){Towers.new}
+    describe "#initialize" do 
+      it "creates initial stack of disks of height 4" do 
+        expect(towers.stacks[0].length).to eq(4)
+      end
+      it "make second and third stacks empty" do 
+        expect(towers.stacks[1]).to be_empty
+        expect(towers.stacks[2]).to be_empty
+      end
+      it "should not make more than three stacks" do 
+        expect(towers.stacks.length).to eq(3)
+      end
+    end
+    describe "#move" do
+      before(:each) {towers.move(0,2)}
+      it "moves a disk from one stack to another" do 
+        expect(towers.stacks[2]).to_not be_empty 
+        expect(towers.stacks[1]).to be_empty
+        expect(towers.stacks[0].length).to eq(3)
+      end 
+      it "moves top disk from one stack to another" do 
+        expect(towers.stacks[2][-1]).to eq(0)
+        expect(towers.stacks[0][-1]).to eq(1)
+      end
+
+    end
+  end
 end

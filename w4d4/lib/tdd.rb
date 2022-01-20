@@ -28,3 +28,19 @@ def my_transpose(array)
   end
   tranposed
 end
+
+def stock_picker(stock_prices)
+  raise "Please pass in an array" unless stock_prices.is_a?(Array)
+  indicies = []
+  max_profit = 0
+  (0...stock_prices.length - 1).each do |idx1|
+    (idx1 + 1...stock_prices.length).each do |idx2|
+      profit = stock_prices[idx2] - stock_prices[idx1] 
+      if profit > max_profit 
+        indicies = [idx1, idx2] 
+        max_profit = profit
+      end
+    end 
+  end 
+  indicies
+end
