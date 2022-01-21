@@ -57,8 +57,10 @@ describe "TDD Tests" do
       expect {stock_picker("hi mom")}.to raise_error("Please pass in an array")
     end
   end
+
   describe "Towers of Hanoi" do 
     let(:towers){Towers.new}
+
     describe "#initialize" do 
       it "creates initial stack of disks of height 4" do 
         expect(towers.stacks[0].length).to eq(4)
@@ -71,6 +73,7 @@ describe "TDD Tests" do
         expect(towers.stacks.length).to eq(3)
       end
     end
+
     describe "#move" do
       before(:each) {towers.move(0,2)}
       it "moves a disk from one stack to another" do 
@@ -82,7 +85,25 @@ describe "TDD Tests" do
         expect(towers.stacks[2][-1]).to eq(0)
         expect(towers.stacks[0][-1]).to eq(1)
       end
+      it "does not put bigger disk on top of smaller disk" do
+        towers.move(0,2)
+        expect(towers.stacks[2][-1]).to eq(0) 
+        expect(towers.stacks[0][-1]).to eq(1)
+      end
+      it "returns message if start position is empty" do
+        expect(towers.move(1,0)).to eq("Empty start position")
+      end
 
+    end
+
+    describe "#won?" do
+      it "should return true if game won" do
+        towers.stacks[0], towers.stacks[2] = towers.stacks[2], towers.stacks[0]
+        expect(towers.won?).to be true
+      end
+      it "should return false if game is not won" do
+        expect(towers.won?).to be false
+      end
     end
   end
 end

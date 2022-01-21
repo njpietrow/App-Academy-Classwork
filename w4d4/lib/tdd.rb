@@ -44,3 +44,21 @@ def stock_picker(stock_prices)
   end 
   indicies
 end
+
+class Towers
+  attr_reader :stacks
+  def initialize
+    @stacks = [[3,2,1,0],[],[]]
+  end
+
+  def move(start_idx, end_idx)
+    return "Empty start position" if stacks[start_idx].empty?
+
+    disk = stacks[start_idx].pop
+    if stacks[end_idx].empty? || disk < stacks[end_idx][-1]
+      stacks[end_idx].push(disk)
+    else
+      stacks[start_idx].push(disk)
+    end
+  end
+end
