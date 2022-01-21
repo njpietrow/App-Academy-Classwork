@@ -1,3 +1,4 @@
+require 'byebug'
 # my_min
 
 list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
@@ -55,8 +56,8 @@ def iter_sub(array)
   return sub_arrays.sort[-1]
 end
 
-p iter_sub(list1)
-p iter_sub(list2)
+# p iter_sub(list1)
+# p iter_sub(list2)
 
 
 # Phase II
@@ -64,3 +65,29 @@ p iter_sub(list2)
 # Keep a running tally of the largest sum. To accomplish this efficient space complexity, 
 # consider using two variables. One variable should track the largest sum so far and another to 
 # track the current sum. We'll leave the rest to you.
+
+# def better_sub_sum(array)
+#   max_sum = nil
+#   i = 0
+#   while i < array.length
+#     current_sum = nil
+#     while i < array.length
+#       if current_sum.nil?
+#         current_sum = array[i]
+#       else
+#         current_sum += array[i]
+#       end
+#       debugger
+#       # current_sum.nil? ? current_sum = array[i] : current_sum += array[i]
+#       max_sum = current_sum if max_sum.nil? || current_sum > max_sum
+#       i += 1
+#       break if current_sum < max_sum
+#     end
+#   end
+#   return max_sum
+# end
+
+
+
+p better_sub_sum(list1)
+p better_sub_sum(list2)
