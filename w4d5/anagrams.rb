@@ -8,9 +8,9 @@
 # Write a method #first_anagram? that will generate and store all the possible anagrams of the first string.
 # Check if the second string is one of these.
 
-# def inting_anagram?(str1, str2)
-#   return str1.split("").permutation(str1.length).to_a.uniq.map(&:join).include?(str2)
-# end
+def inting_anagram?(str1, str2)
+  return str1.split("").permutation(str1.length).to_a.uniq.map(&:join).include?(str2)
+end
 
 # p inting_anagram?("hello", "lloeh")
 
@@ -20,14 +20,14 @@
 
 # Try varying the length of the input strings. What are the differences between #first_anagram? and #second_anagram??
 
-# def less_inting_anagram?(str1, str2)
-#   str1.chars.each do |char|
-#     idx = str2.index(char)
-#     return false if idx.nil?
-#     str2[idx] = ""
-#   end
-#   return str2.length == 0 ? true : false
-# end
+def less_inting_anagram?(str1, str2)
+  str1.chars.each do |char|
+    idx = str2.index(char)
+    return false if idx.nil?
+    str2[idx] = ""
+  end
+  return str2.length == 0 ? true : false
+end
 
 # p less_inting_anagram?("hello", "lleoh")
 
@@ -36,3 +36,21 @@
 
 # What is the time complexity of this solution? Is it better or worse than #second_anagram??
 
+def sort_gram?(str1, str2)
+  return str1.chars.sort == str2.chars.sort
+end
+
+# p sort_gram?("hello", "loleh")
+
+# Write one more method #fourth_anagram?. 
+# This time, use two hashes to store the number of times each letter appears in both words. Compare the resulting hashes.
+# What is the time complexity?
+
+def hash_gram?(str1, str2)
+  count = Hash.new(0)
+  str1.each_char {|char| count[char]+=1 }
+  str2.each_char {|char| count[char]-=1 }
+  return count.values.all?(0)
+end
+
+p hash_gram?("hello", "elloh")
