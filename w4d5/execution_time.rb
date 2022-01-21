@@ -66,6 +66,35 @@ end
 # consider using two variables. One variable should track the largest sum so far and another to 
 # track the current sum. We'll leave the rest to you.
 
+list1 = [2, 3, -6, 7, -6, 7]
+list2 = [-5, -1, -3]
+
+
+def better_sub_sum(array)
+  max_sum = array.first
+  current_sum = array.first
+  i = 0
+  array[1..-1].each_with_index do |ele,j|
+    current_sum = 0 if current_sum < 0
+    current_sum += ele
+    # current_sum = array[i..j].sum 
+    if current_sum > max_sum
+      max_sum = current_sum
+    # else #if (current_sum + array[j+1]) < max_sum
+    #   i = j
+    end
+    # elsif current_sum <= 0
+    #   current_sum = ele
+    #   i = j
+    # end
+  end
+  max_sum
+end
+
+
+p better_sub_sum(list1)
+p better_sub_sum(list2)
+
 # def better_sub_sum(array)
 #   max_sum = nil
 #   i = 0
@@ -86,8 +115,3 @@ end
 #   end
 #   return max_sum
 # end
-
-
-
-p better_sub_sum(list1)
-p better_sub_sum(list2)
