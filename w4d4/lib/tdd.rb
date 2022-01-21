@@ -61,4 +61,20 @@ class Towers
       stacks[start_idx].push(disk)
     end
   end
+
+  def won?
+    stacks[1].length == 4 || stacks[2].length == 4
+  end
+
+  def play 
+    until won?
+      p stacks
+      print "enter a starting positition and ending position, 'start, end' "
+      indicies = gets.chomp.split(",").map(&:to_i)
+      move(*indicies)
+    end
+  end
 end
+
+t = Towers.new
+t.play
