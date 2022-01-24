@@ -22,6 +22,8 @@ class Hash
   # This returns 0 because rspec will break if it returns nil
   # Make sure to implement an actual Hash#hash method
   def hash
-    0
+    array = []
+    self.each {|k,v| array << [k,v]}
+    array.sort.flatten.map {|ele| if ele.is_a?(Symbol); ele.object_id;elsif ele.is_a?(String);ele.bytes.sum;else;ele;end}.hash
   end
 end
