@@ -27,6 +27,9 @@ class LinkedList
 
   def initialize
     @head = Node.new(:head, :head)
+    @tail = Node.new(:tail, :tail)
+    @head.next = @tail
+    @tail.prev = @head
   end
 
   def [](i)
@@ -35,34 +38,53 @@ class LinkedList
   end
 
   def first
+    @head.next
   end
 
   def last
+    @tail.prev
   end
 
   def empty?
+    @head.next == @tail
   end
 
   def get(key)
+    return nil unless self.include?(key)
+    self.each {|current| return current.val if current.key == key}
   end
 
   def include?(key)
+    self.each {|current| return true if current.key == key}
+    false
   end
 
   def append(key, val)
+    node = Node.new(key,val)
+    node.next = @tail
+    node.prev = @tail.prev
+    @tail.prev.next = node
+    @tail.prev = node
   end
 
   def update(key, val)
+    self.each {|current| return current.val = val if current.key == key}
   end
 
   def remove(key)
+    self.each {|current| current.remove if current.key == key}
   end
 
-  def each
+  def each(&prc)
+    current = first
+    until current == @tail
+      prc.call(current)
+      current = current.next
+    end
   end
 
   # uncomment when you have `each` working and `Enumerable` included
-  # def to_s
-  #   inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
-  # end
+  def to_s
+    inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
+  end
 end
