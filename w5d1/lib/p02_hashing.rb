@@ -6,7 +6,11 @@ class Array
   def hash
     return 0 if self.empty?
     int_arr = self.map.with_index do |ele, idx|
-      ele.to_i + idx
+      if ele.is_a?(Array)
+        ele.hash
+      else
+        ele.to_i + idx
+      end
     end
     int_arr.inject { |accum, ele| accum ^ ele }
   end
