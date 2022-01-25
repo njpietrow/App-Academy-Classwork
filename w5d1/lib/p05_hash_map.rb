@@ -34,7 +34,12 @@ class HashMap
     @count -= 1
   end
 
-  def each
+  def each(&prc)
+    @store.each do |bucket|
+      bucket.each do |ele|
+        prc.call(ele.key,ele.val)
+      end
+    end
   end
 
   # uncomment when you have Enumerable included
