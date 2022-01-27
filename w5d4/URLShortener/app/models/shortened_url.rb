@@ -9,7 +9,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+require 'securerandom'
+
 class ShortenedUrl < ApplicationRecord
+  
   validates :user_id, presence: true
 
   def self.random_code
