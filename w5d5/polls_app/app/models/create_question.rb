@@ -1,2 +1,0 @@
-class CreateQuestion < ApplicationRecord
-end

@@ -1,2 +1,0 @@
-class CreatePoll < ApplicationRecord
-end
