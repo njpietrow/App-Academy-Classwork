@@ -1,0 +1,2 @@
+class CreatePoll < ApplicationRecord
+end
