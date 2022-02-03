@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'users', to: 'users#create', as: 'create_user'
   patch 'users/:id', to: 'users#update', as: 'update_user'
   put 'users/:id', to: 'users#update', as: 'update_user_put'
-  delete 'users/:id', to: 'users#delete', as: 'delete_user'
+  delete 'users/:id', to: 'users#destroy', as: 'delete_user'
 
   # resources :users
 end
