@@ -122,3 +122,92 @@ Migrating to ChangeCat (20220204221343)
   [1m[36mCat Load (21.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/" for ::1 at 2022-02-04 15:00:43 -0800
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nickpietrow/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+        bin/rails db:migrate RAILS_ENV=development:
+
+Started POST "/__better_errors/d8ababf7829d4c67/variables" for ::1 at 2022-02-04 15:00:44 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7809834472913233005)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to ChangeCat (20220204221343)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.7ms)[0m  [1m[35mALTER TABLE "cats" ADD "color" character varying NOT NULL[0m
+  ↳ db/migrate/20220204221343_change_cat.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cats" ADD "name" character varying NOT NULL[0m
+  ↳ db/migrate/20220204221343_change_cat.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "cats" ADD "sex" character varying(1) NOT NULL[0m
+  ↳ db/migrate/20220204221343_change_cat.rb:5
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cats" ADD "description" text NOT NULL[0m
+  ↳ db/migrate/20220204221343_change_cat.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220204221343"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7809834472913233005)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2022-02-04 15:01:02 -0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nickpietrow/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/nickpietrow/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/nickpietrow/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 14ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats" for ::1 at 2022-02-04 15:01:18 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (2.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 1133ms (Views: 1122.7ms | ActiveRecord: 6.8ms)
+
+
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mCat Load (1.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mCat Create (1.8ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "created_at", "updated_at", "color", "name", "sex", "description") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2015-01-20"], ["created_at", "2022-02-04 23:01:36.247681"], ["updated_at", "2022-02-04 23:01:36.247681"], ["color", "tuxedo"], ["name", "kitty"], ["sex", "F"], ["description", "A very nice kitty!"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mCat Create (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "created_at", "updated_at", "color", "name", "sex", "description") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2011-01-20"], ["created_at", "2022-02-04 23:01:36.251575"], ["updated_at", "2022-02-04 23:01:36.251575"], ["color", "orange"], ["name", "paul"], ["sex", "F"], ["description", "A very, very nice kitty!"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mCat Create (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "created_at", "updated_at", "color", "name", "sex", "description") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2015-07-20"], ["created_at", "2022-02-04 23:01:36.252812"], ["updated_at", "2022-02-04 23:01:36.252812"], ["color", "black"], ["name", "fred"], ["sex", "M"], ["description", "A very nice kitty!"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+Started GET "/cats" for ::1 at 2022-02-04 15:01:38 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (2.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/_cat.html.erb (0.8ms)
+  Rendered cats/_cat.html.erb (0.1ms)
+  Rendered cats/_cat.html.erb (0.0ms)
+  Rendered cats/index.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 49ms (Views: 29.9ms | ActiveRecord: 19.0ms)
+
+

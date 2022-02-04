@@ -12,9 +12,12 @@
 #  description :text             not null
 #
 require 'action_view'
+
 VALID_COLORS = %w(white black tuxedo orange calico maltese)
+
 class Cat < ApplicationRecord
   include ActionView::Helpers::DateHelper
+
   validates :birth_date, :color, :name, :sex, :description, presence: true
   validates :color, inclusion: {in: VALID_COLORS, message: "Sorry, not a valid color."}
 
@@ -23,7 +26,5 @@ class Cat < ApplicationRecord
     number_of_days = (todays_date - self.birth_date).to_i
     years = number_of_days / 365
   end
-
-
 
 end
