@@ -211,3 +211,90 @@ Processing by CatsController#index as HTML
 Completed 200 OK in 49ms (Views: 29.9ms | ActiveRecord: 19.0ms)
 
 
+Started GET "/" for ::1 at 2022-02-04 15:17:48 -0800
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/shhmabbey/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/shhmabbey/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/shhmabbey/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (21.3ms)
+Completed 200 OK in 203ms (Views: 104.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats" for ::1 at 2022-02-04 15:17:54 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (68.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/_cat.html.erb (5.8ms)
+  Rendered cats/_cat.html.erb (1.2ms)
+  Rendered cats/_cat.html.erb (0.5ms)
+  Rendered cats/index.html.erb within layouts/application (171.9ms)
+Completed 200 OK in 3877ms (Views: 3750.3ms | ActiveRecord: 108.0ms)
+
+
+Started GET "/cats/1" for ::1 at 2022-02-04 15:18:03 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (66.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 97.5ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "cats".* FROM "cats" WHERE (1) LIMIT $1
+                                            ^
+: SELECT  "cats".* FROM "cats" WHERE (1) LIMIT $1:
+  app/controllers/cats_controller.rb:8:in `show'
+
+Started POST "/__better_errors/445f25ac3224fbcc/variables" for ::1 at 2022-02-04 15:18:03 -0800
+Started GET "/cats" for ::1 at 2022-02-04 15:18:07 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/_cat.html.erb (2.2ms)
+  Rendered cats/_cat.html.erb (0.5ms)
+  Rendered cats/_cat.html.erb (0.5ms)
+  Rendered cats/index.html.erb within layouts/application (129.9ms)
+Completed 200 OK in 447ms (Views: 397.3ms | ActiveRecord: 42.4ms)
+
+
+Started GET "/cats/1" for ::1 at 2022-02-04 15:18:10 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (11.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 11.5ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "cats".* FROM "cats" WHERE (1) LIMIT $1
+                                            ^
+: SELECT  "cats".* FROM "cats" WHERE (1) LIMIT $1:
+  app/controllers/cats_controller.rb:8:in `show'
+
+Started POST "/__better_errors/f0903f8952e97695/variables" for ::1 at 2022-02-04 15:18:10 -0800
+Started GET "/cats/1" for ::1 at 2022-02-04 15:20:01 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (2.8ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 375ms (Views: 128.7ms | ActiveRecord: 24.6ms)
+
+
+Started GET "/cats/" for ::1 at 2022-02-04 15:20:37 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/_cat.html.erb (2.4ms)
+  Rendered cats/_cat.html.erb (0.9ms)
+  Rendered cats/_cat.html.erb (0.5ms)
+  Rendered cats/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 139ms (Views: 136.9ms | ActiveRecord: 0.9ms)
+
+
