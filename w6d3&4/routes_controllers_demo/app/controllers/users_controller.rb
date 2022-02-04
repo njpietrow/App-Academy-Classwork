@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  def index # render plain: "I'm in the index action!"
+  def index # render plain: "I'm in the index action!" htt:localhost:3000
     if params[:username]
       username = params[:username]
       users = User.where("users.username LIKE ? ", "%#{username}%")
