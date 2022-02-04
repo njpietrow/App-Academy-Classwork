@@ -1,12 +1,43 @@
 <ul>
+  <% if action == :index %>
   <li>name: <%= cat.name %> </li>
   <li>birth date: <%= cat.birth_date %> </li>
   <li>color: <%= cat.color %> </li>
   <li>sex: <%= cat.sex %> </li>
   <li>description: <%= cat.description %> </li>
-  
-  <% if action == :index %>
   <li><%= link_to 'View this cat', cat_url(cat) %></li>
+  <% end %>
+
+  <% if action == :show %>
+
+    <table>
+      <tbody>
+        <tr>
+          <th>Attribute</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Name: </td>
+          <td><%= cat.name %></td>
+        </tr>
+        <tr>
+          <td>Age: </td>
+          <td><%= cat.age %></td>
+        </tr>
+        <tr>
+          <td>Birth date: </td>
+          <td><%= cat.birth_date %></td>
+        </tr>
+        <tr>
+          <td>Color: </td>
+          <td><%= cat.color %></td>
+        </tr>
+        <tr>
+          <td>Sex: </td>
+          <td><%= cat.sex %></td>
+        </tr>
+      </tbody>
+    </table>
   <% end %>
 </ul>
 
