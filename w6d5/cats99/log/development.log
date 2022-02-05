@@ -344,3 +344,68 @@ Processing by CatsController#show as HTML
 Completed 200 OK in 95ms (Views: 89.7ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/cats/" for ::1 at 2022-02-04 16:54:07 -0800
+  [1m[35m (23.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/shhmabbey/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (29.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/_cat.html.erb (5.4ms)
+  Rendered cats/_cat.html.erb (2.5ms)
+  Rendered cats/_cat.html.erb (0.6ms)
+  Rendered cats/index.html.erb within layouts/application (238.3ms)
+Completed 200 OK in 1217ms (Views: 1040.0ms | ActiveRecord: 130.0ms)
+
+
+Started GET "/cats/" for ::1 at 2022-02-04 16:54:35 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (12.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/_cat.html.erb (3.3ms)
+  Rendered cats/_cat.html.erb (0.5ms)
+  Rendered cats/_cat.html.erb (0.8ms)
+  Rendered cats/index.html.erb within layouts/application (71.8ms)
+Completed 200 OK in 163ms (Views: 133.2ms | ActiveRecord: 22.0ms)
+
+
+Started GET "/cats/1" for ::1 at 2022-02-04 16:54:39 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (1.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_cat.html.erb (3.2ms)
+  Rendered cats/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 135ms (Views: 92.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cats/new" for ::1 at 2022-02-04 16:54:51 -0800
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 90ms (Views: 88.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2022-02-04 16:55:16 -0800
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 88ms (Views: 86.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2022-02-04 16:55:47 -0800
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 231ms (Views: 228.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2022-02-04 16:57:19 -0800
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 91ms (Views: 89.4ms | ActiveRecord: 0.0ms)
+
+
