@@ -298,3 +298,49 @@ Processing by CatsController#index as HTML
 Completed 200 OK in 139ms (Views: 136.9ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/cats/1" for ::1 at 2022-02-04 16:03:04 -0800
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/shhmabbey/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (3.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_cat.html.erb (2.4ms)
+  Rendered cats/show.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 862ms (Views: 689.2ms | ActiveRecord: 33.6ms)
+
+
+Started GET "/cats/1" for ::1 at 2022-02-04 16:07:46 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (1.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_cat.html.erb (2.6ms)
+  Rendered cats/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 111ms (Views: 103.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cats/1" for ::1 at 2022-02-04 16:08:43 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_cat.html.erb (1.1ms)
+  Rendered cats/show.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 64ms (Views: 58.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats/1" for ::1 at 2022-02-04 16:09:12 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/_cat.html.erb (33.7ms)
+  Rendered cats/show.html.erb within layouts/application (39.7ms)
+Completed 200 OK in 95ms (Views: 89.7ms | ActiveRecord: 0.6ms)
+
+
