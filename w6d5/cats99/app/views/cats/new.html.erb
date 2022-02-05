@@ -1,3 +1,16 @@
 <form action='<%= cats_url %>' method= 'POST' >
+  <label for="cat_name">Cat name: </label>
+  <input name="cat[name]" id="cat_name" type="text" value="<%= @cat.name %>"   >
   
+  <br>  
+
+  <label>
+    Sex:
+    <br>
+    M
+    <input sex="cat[sex]" type="radio" value="M">
+    F
+    <input sex="cat[sex]" type="radio" value="F">
+  </label>
+
 </form>
