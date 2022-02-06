@@ -13,11 +13,13 @@
 #
 require 'action_view'
 
-VALID_COLORS = %w(white black tuxedo orange calico maltese)
+
 
 class Cat < ApplicationRecord
   include ActionView::Helpers::DateHelper
 
+  VALID_COLORS = %w(white black tuxedo orange calico maltese)
+  
   validates :birth_date, :color, :name, :sex, :description, presence: true
   validates :color, inclusion: {in: VALID_COLORS, message: "Sorry, not a valid color."}
 
