@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-  before_action :redirect_logged_in
-  skip_before_action :redirect_logged_in, only: [:destroy, :redirect_logged_in]
+  before_action :require_logged_in!
+  skip_before_action :require_logged_in!, only: [:destroy]
 
   def new
     render :new
