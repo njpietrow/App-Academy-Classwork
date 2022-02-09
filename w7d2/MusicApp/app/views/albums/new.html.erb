@@ -1,0 +1,16 @@
+<h1> Record the next Grammy!</h1>
+
+
+<form action="<%= albums_url%>" method="POST">
+<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+<label> Artist
+<select name="album[band_id]">
+    <% @bands.each do |band|%>
+  <option value = "<%= band.id %>" <%= "selected" if band.id == params[:band_id].to_i %> > <%=band.name%> </option>
+    <% end%>
+</select>
+
+</label>
+
+</form>

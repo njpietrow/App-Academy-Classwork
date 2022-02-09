@@ -1,0 +1,15 @@
+<% content_for :header do %>
+  <%= render "bands" %>
+<% end %>
+
+<h1>Edit a band</h1>
+
+<form action="<%= bands_url %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  
+  <label for="band_name">Band Name: </label>
+  <input type="text" name="band[name]" id="band_name" value="<%= @band.name %>">
+
+  <input type="submit" value="Formaté Band">
+</form>

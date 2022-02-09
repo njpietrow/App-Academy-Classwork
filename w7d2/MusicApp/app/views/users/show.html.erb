@@ -1,0 +1,7 @@
+<% content_for :header do %>
+  <%= render "users" %>
+<% end %>
+
+<h1>This is a user</h1>
+<p>User email: <%= @user.email %></p>
+<a href="<%= users_url %>">Return to Users page</a>

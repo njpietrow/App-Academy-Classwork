@@ -1,0 +1,14 @@
+<% content_for :header do %>
+  <%= render "users" %>
+<% end %>
+
+<h1>Welcome to the Users page</h1>
+
+<% @users.each do |user| %>
+  <ul>
+    <li>Email: <%= user.email %></li>
+    <li><a href="<%=user_url(user.id)%>">Visit <%=user.email%>'s page</a></li>
+  </ul>
+<% end %>
+
+<a href="/bands">Check out the bands</a>

@@ -1,0 +1,15 @@
+<% content_for :header do %>
+  <%= render "bands" %>
+<% end %>
+
+<h1>Welcome to the band index page</h1>
+
+<% @bands.each do |band| %>
+  <ul>
+      <li>Band Name: <%= band.name %></li>
+      <li><a href="<%=band_url(band.id)%>">Visit <%=band.name %>'s page</a></li>
+  </ul>
+<% end %>
+
+<a href="/bands/new">Create a band</a>
+<a href="/users">Check out the users</a>

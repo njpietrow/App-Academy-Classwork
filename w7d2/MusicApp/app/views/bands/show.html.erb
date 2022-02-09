@@ -1,0 +1,8 @@
+<% content_for :header do %>
+  <%= render "bands" %>
+<% end %>
+
+<h1>Welcome to the band show page</h1>
+
+<p>Band Name: <%= @band.name %></p>
+<a href="<%= bands_url %>">Go back to the bands index page</a>
