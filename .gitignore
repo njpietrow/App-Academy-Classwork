@@ -9,10 +9,10 @@ Gemfile.lock
 **/tmp/*
 !/log/.keep
 !/tmp/.keep
-/storage/*
+**/storage/*
 !/storage/.keep
-/node_modules
-/yarn-error.log
-/public/assets
+**/node_modules
+**/yarn-error.log
+**/public/assets
 .byebug_history
-/config/master.key
+**/config/master.key
