@@ -3787,3 +3787,115 @@ Processing by SubsController#show as HTML
 Completed 200 OK in 25ms (Views: 21.7ms | ActiveRecord: 2.1ms)
 
 
+Started GET "/subs?authenticity_token=1kTfYCgdCWyqhV0TlkgYHrrwKzwabSSHyr4KdvS%2B8JHaiShb2YVHIsu8MH8N5bQT8Pxxc0DqLVMnXaa9vrKB8w%3D%3D" for ::1 at 2022-02-11 15:41:37 -0800
+Processing by SubsController#index as HTML
+  Parameters: {"authenticity_token"=>"1kTfYCgdCWyqhV0TlkgYHrrwKzwabSSHyr4KdvS+8JHaiShb2YVHIsu8MH8N5bQT8Pxxc0DqLVMnXaa9vrKB8w=="}
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (2.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (4.6ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "03lkP0kjXlkXXj-wgebhhA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 86ms (Views: 81.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users?authenticity_token=rcpfB1I6uwkSM0Ff%2BUOTV4wvmhx1MukFyspyUa%2FrQuChB6g8o6L1R3MKLDNi7j9axiPAUy%2B14NEnKd6a5eczgg%3D%3D" for ::1 at 2022-02-11 15:41:38 -0800
+Processing by UsersController#index as HTML
+  Parameters: {"authenticity_token"=>"rcpfB1I6uwkSM0Ff+UOTV4wvmhx1MukFyspyUa/rQuChB6g8o6L1R3MKLDNi7j9axiPAUy+14NEnKd6a5eczgg=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "03lkP0kjXlkXXj-wgebhhA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/2?authenticity_token=X8wFsBwuOfCWqPn%2Fi6HqDBApglDOWrK96L5sAXV%2FhNJTAfKL7bZ3vveRlJMQDEYBWiXYH5Tdu2kFXcDKP3P1sA%3D%3D" for ::1 at 2022-02-11 15:41:40 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"X8wFsBwuOfCWqPn/i6HqDBApglDOWrK96L5sAXV/hNJTAfKL7bZ3vveRlJMQDEYBWiXYH5Tdu2kFXcDKP3P1sA==", "id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "03lkP0kjXlkXXj-wgebhhA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSub Load (1.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs" WHERE "subs"."moderator_id" = $1[0m  [["moderator_id", 2]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 34ms (Views: 28.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users?authenticity_token=fQ1EOZUsSGpoVMnI0DQHPkISh1Cs%2BLxPxVFkwPpRWaVxwLMCZLQGJAltpKRLmaszCB7dH%2FZ%2FtZsossgLsF0oxw%3D%3D" for ::1 at 2022-02-11 15:41:41 -0800
+Processing by UsersController#index as HTML
+  Parameters: {"authenticity_token"=>"fQ1EOZUsSGpoVMnI0DQHPkISh1Cs+LxPxVFkwPpRWaVxwLMCZLQGJAltpKRLmaszCB7dH/Z/tZsossgLsF0oxw=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "03lkP0kjXlkXXj-wgebhhA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/1?authenticity_token=MNHh6PUE%2Bq59TAE9UKg%2BKehR2O0UPxQWNzp015jKp4E8HBbTBJy04Bx1bFHLBZIkol2Cok64HcLa2dgc0sbW4w%3D%3D" for ::1 at 2022-02-11 15:41:41 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"MNHh6PUE+q59TAE9UKg+KehR2O0UPxQWNzp015jKp4E8HBbTBJy04Bx1bFHLBZIkol2Cok64HcLa2dgc0sbW4w==", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "03lkP0kjXlkXXj-wgebhhA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs" WHERE "subs"."moderator_id" = $1[0m  [["moderator_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users?authenticity_token=686QdaO3q1W7DUv6h%2FJQlgvWWKaEX1N4eXx8%2BuK3217nA2dOUi%2FlG9o0JpYcX%2FybQdoC6d7YWqyUn9AxqLuqPA%3D%3D" for ::1 at 2022-02-11 15:41:42 -0800
+Processing by UsersController#index as HTML
+  Parameters: {"authenticity_token"=>"686QdaO3q1W7DUv6h/JQlgvWWKaEX1N4eXx8+uK3217nA2dOUi/lG9o0JpYcX/ybQdoC6d7YWqyUn9AxqLuqPA=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "03lkP0kjXlkXXj-wgebhhA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 18.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/subs?authenticity_token=6yfCqK2uRqx%2FjJQaS2PaDui2D3poZaA68BOnDmn1BLLn6jWTXDYI4h61%2BXbQznYDorpVNTLiqe4d8AvFI%2Fl10A%3D%3D" for ::1 at 2022-02-11 15:41:43 -0800
+Processing by SubsController#index as HTML
+  Parameters: {"authenticity_token"=>"6yfCqK2uRqx/jJQaS2PaDui2D3poZaA68BOnDmn1BLLn6jWTXDYI4h61+XbQznYDorpVNTLiqe4d8AvFI/l10A=="}
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "03lkP0kjXlkXXj-wgebhhA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 29ms (Views: 24.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users?authenticity_token=iIydFtyn4TDKU7pwgL30UyLD%2BQ2Qd%2BhKe4r6NpJ9AOyEQWotLT%2Bvfqtq1xwbEFheaM%2BjQsrw4Z6WaVb92HFxjg%3D%3D" for ::1 at 2022-02-11 15:41:44 -0800
+Processing by UsersController#index as HTML
+  Parameters: {"authenticity_token"=>"iIydFtyn4TDKU7pwgL30UyLD+Q2Qd+hKe4r6NpJ9AOyEQWotLT+vfqtq1xwbEFheaM+jQsrw4Z6WaVb92HFxjg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "03lkP0kjXlkXXj-wgebhhA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/subs?authenticity_token=HOqL%2BibTlH0eGdDA2Q7w%2Bnpw7gjmrJFHNm2rtXV8WJgQJ3zB10vaM38gvaxCo1z3MHy0R7wrmJPbjgd%2BP3Ap%2Bg%3D%3D" for ::1 at 2022-02-11 15:41:45 -0800
+Processing by SubsController#index as HTML
+  Parameters: {"authenticity_token"=>"HOqL+ibTlH0eGdDA2Q7w+npw7gjmrJFHNm2rtXV8WJgQJ3zB10vaM38gvaxCo1z3MHy0R7wrmJPbjgd+P3Ap+g=="}
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "03lkP0kjXlkXXj-wgebhhA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.8ms)
+
+
