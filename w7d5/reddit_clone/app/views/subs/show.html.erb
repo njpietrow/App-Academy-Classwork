@@ -1,0 +1,20 @@
+<h3><%= @sub.title %> - subredditclone</h3>
+<h4><%= @sub.moderator.username %> is the moderator of this sub</h4>
+
+<p><%= @sub.description %></p>
+
+<form action="<%= edit_sub_url %>" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+  <button>Edit this sub page</button>
+</form>
+
+
+<form action="<%= subs_url %>" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+  <button>see all subs</button>
+</form>
+
+<form action="<%= users_url %>" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+  <button>see all users</button>
+</form>

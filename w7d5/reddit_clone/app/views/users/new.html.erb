@@ -1,2 +1,13 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h2>Create an account using this form</h2>
+
+<form action="<%= users_url %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="Username">Username</label>
+  <input type="text" name="user[username]" id="Username" value="<%= @user.username %>">
+  <br>
+  <label for="Password">Password</label>
+  <input type="password" name="user[password]" id="Password" value="<%= @user.password %>">  
+
+  <input type="submit" value="Create Account">
+</form>

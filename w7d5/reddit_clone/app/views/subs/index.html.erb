@@ -1,0 +1,17 @@
+<h3>These are all of the subreddits</h3>
+
+<ul>
+  <% @subs.each do |sub| %>
+    <li><a href="<%= sub_url(sub) %>"><%= sub.title %></a></li>
+  <% end %>
+</ul>
+
+<form action="<%= new_sub_url %>" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+  <button>Create a new sub</button>
+</form> 
+
+<form action="<%= users_url %>" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+  <button>See all the users</button>
+</form> 
