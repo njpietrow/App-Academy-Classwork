@@ -3,11 +3,10 @@
 Gemfile.lock
 **/Gemfile.lock
 
-/log/* .log /tmp/ !/log/.keep !/tmp/.keep
-/.bundle
-/log/*
-/tmp/*
-tmp/*
+
+**/.bundle
+**/log/*
+**/tmp/*
 !/log/.keep
 !/tmp/.keep
 /storage/*
