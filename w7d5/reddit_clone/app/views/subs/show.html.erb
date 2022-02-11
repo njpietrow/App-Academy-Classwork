@@ -3,11 +3,29 @@
 
 <p><%= @sub.description %></p>
 
-<form action="<%= edit_sub_url %>" method="get">
+<p>add a new post! </p>
+<form action="<%= new_sub_post_url(@sub) %>" method="get">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
-  <button>Edit this sub page</button>
+  <button>Add a new post here</button>
 </form>
 
+
+
+<% @sub.posts.each do |post| %>
+  <ul>
+    <li><%= post.title %></li>
+    <li>posted by: <%= post.author.username %></li>
+    <li><a href=<%= post.url %>><%= post.url %></a></li>
+    <span><%= post.content %></span>
+  </ul>
+<% end %>
+
+
+
+<form action="<%= edit_sub_url %>" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+  <button>Edit this sub page (moderators only)</button>
+</form>
 
 <form action="<%= subs_url %>" method="get">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
