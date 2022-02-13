@@ -3,19 +3,19 @@
 <h5>Here's a list of all users</h5>
 
 
-<ul>
-  <% @users.each do |user| %>
 
-    <li> 
-      <%= user.username %>
-      <form action="<%= user_url(user) %>" method="get">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
-        <button>show page of user</button>
-      </form> 
-    </li>
-    
+  <% @users.each do |user| %>
+    <ul>
+      <li> 
+        <%= user.username %>
+        <form action="<%= user_url(user) %>" method="get">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+          <button>show page of user</button>
+        </form> 
+      </li>
+    </ul>
   <% end %>
-</ul>
+
 
 <form action="<%= subs_url %>" method="get">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
