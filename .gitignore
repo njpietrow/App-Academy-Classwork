@@ -16,3 +16,15 @@ Gemfile.lock
 **/public/assets
 .byebug_history
 **/config/master.key
+/.bundle
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/storage/*
+!/storage/.keep
+/node_modules
+/yarn-error.log
+/public/assets
+.byebug_history
+/config/master.key
