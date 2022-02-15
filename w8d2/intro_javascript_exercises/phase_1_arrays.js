@@ -25,4 +25,22 @@ Array.prototype.twoSum = function() {
   return pairs;
 }
 
-console.log([1,-1,2,3,-2].twoSum())
+// console.log([1,-1,2,3,-2].twoSum())
+
+Array.prototype.transpose = function() {
+  let transposed = [];
+  let dimY = this.length
+  let dimX = this[0].length
+  for (let i = 0; i < dimY; i++) {
+    transposed.push(Array(dimX));
+  }
+  
+  for (let i = 0; i < dimY; i++) {
+    for (let j = 0; j < dimX; j++) {
+      transposed[i][j] = this[j][i];
+    }
+  }
+  return transposed;
+}
+
+// console.log([[1,2,3],[1,2,3],[1,2,3]].transpose());
