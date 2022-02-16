@@ -44,3 +44,42 @@ function exponent2(base, exp) {
 }
 
 // console.log(exponent2(5, 3));
+
+function fibonacci(n) {
+  if (n < 3){
+    return [0,1].slice(0,n)
+  }
+  let arr = fibonacci(n-1);
+  // debugger
+  arr.push(arr[arr.length-1] + arr[arr.length-2]);
+  return arr;
+}
+
+// console.log(fibonacci(5));
+
+function deepDup(arr) {
+  if (!(arr instanceof Array)){
+    return arr;
+  }
+
+  let duped = [];
+
+  for(let i = 0; i < arr.length; i++) {
+    duped.push(deepDup(arr[i]));
+  }
+
+  return duped;
+}
+
+twoDArr = [
+  ["nuts", "bolts", "washers"],
+  ["capacitors", "resistors", "inductors"]
+];
+
+newTwoDArr = deepDup(twoDArr);
+
+twoDArr[0][0] = ["this","is","differ"]
+
+// console.log(twoDArr);
+// console.log(newTwoDArr);
+// console.log(newTwoDArr === twoDArr);
