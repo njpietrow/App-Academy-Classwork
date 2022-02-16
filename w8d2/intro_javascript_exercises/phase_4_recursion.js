@@ -20,3 +20,27 @@ function sumRec(arr) {
 
 // console.log(sumRec([1,2,3,4]));
 
+function exponent1(base, exp) {
+    if (exp === 0) {
+        return 1
+    }
+
+    return base * exponent1(base, exp - 1);
+}
+
+// console.log(exponent1(5, 2));
+
+function exponent2(base, exp) {
+    if (exp === 0) {
+        return 1
+    }
+
+    if (exp % 2 === 0) {
+        return (exponent2(base, exp/2))**2;
+    }
+    else {
+        return base * (exponent2(base, (exp - 1)/2)**2);
+    }
+}
+
+// console.log(exponent2(5, 3));
