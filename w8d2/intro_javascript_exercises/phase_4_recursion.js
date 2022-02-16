@@ -83,3 +83,63 @@ twoDArr[0][0] = ["this","is","differ"]
 // console.log(twoDArr);
 // console.log(newTwoDArr);
 // console.log(newTwoDArr === twoDArr);
+
+function bsearch(arr, target) {
+    if (arr.length === 0) {
+        return -1;
+    }
+
+    let midIdx = Math.floor((arr.length)/2);
+    let midVal = arr[midIdx];
+
+    if (target === midVal) {
+        return midIdx;
+    }
+    else if (target < midVal) {
+        let left = arr.slice(0, midIdx);
+        return bsearch(left, target);
+    }
+    else {
+        let right = arr.slice(midIdx + 1);
+        let test = bsearch(right, target);
+        if (test === -1) {
+            return -1
+        }
+        return midIdx + 1 + test;
+    }
+}
+
+// console.log(bsearch([11, 22, 33, 44, 66], 12));
+
+function mergeSort(arr) {
+    if (arr.length === 1) {
+        return arr;
+    }
+    let midIdx = Math.floor(arr.length / 2);
+    let left = mergeSort(arr.slice(0, midIdx));
+    let right = mergeSort(arr.slice(midIdx));
+
+
+    return merge(left, right)
+
+}
+
+function merge(left, right) {
+
+    let merged = [];
+    
+    while (left.length > 0 && right.length > 0) {
+        if (left[0] > right[0]) {
+            merged.push(right.pop());
+        }
+        else {
+            merged.push(left.pop());
+        }
+    }
+    merged.concat(left);
+    merged.concat(right);
+    return merged;
+}
+
+
+console.log(mergeSort([4,6,2,3,1,5]))
