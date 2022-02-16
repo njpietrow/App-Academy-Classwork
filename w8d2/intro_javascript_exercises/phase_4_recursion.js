@@ -130,15 +130,14 @@ function merge(left, right) {
     
     while (left.length > 0 && right.length > 0) {
         if (left[0] > right[0]) {
-            merged.push(right.pop());
+            merged.push(right.shift());
         }
         else {
-            merged.push(left.pop());
+            merged.push(left.shift());
         }
     }
-    merged.concat(left);
-    merged.concat(right);
-    return merged;
+    return merged.concat(left, right);
+
 }
 
 
