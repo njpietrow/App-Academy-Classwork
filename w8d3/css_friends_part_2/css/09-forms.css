@@ -1,0 +1,35 @@
+/* PHASE 3: Forms */
+
+
+.post-picture {
+  height: 65px;
+  width: 65px;
+}
+
+.content-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-form {
+  width: 85%;
+  height: 55%;
+  border: 1px solid lightgray;
+  background-color: rgba(211, 211, 211, 0.194);
+}
+
+input {
+  width: 400px;
+  border: 1px solid lightgray;
+  padding: 8px;
+}
+
+textarea {
+  width: 400px;
+  padding: 8px;
+  border: 1px solid lightgray;
+}
+
+form > label {
+  margin-top: 12px;
+}
