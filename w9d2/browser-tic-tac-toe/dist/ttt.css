@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin: auto;
+    font-size: 80px;
+    font-family:monospace;
+    font-weight: 700;
+}
+
+ul {
+    margin: auto;
+    display: flex;
+    width: 600px;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 195px;
+    height: 195px;
+    border: 2px solid black;
+    background-color: gray;
+    font-size: 90px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+li:hover {
+    background-color: yellow;
+}
+
+.clicked {
+    background-color: white;
+}
+
+.winner {
+    background-color: green;
+    color: white;
+}
+
+.loser {
+    color: red;
+}

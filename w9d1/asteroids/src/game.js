@@ -43,7 +43,6 @@ Game.prototype.randomPosition = function() {
 
 Game.prototype.draw = function(ctx) {
   ctx.clearRect(0, 0, gameDefaults.DIM_X, gameDefaults.DIM_Y);
-
   this.allObjects().forEach((ele) => {
     ele.draw(ctx);
   })
