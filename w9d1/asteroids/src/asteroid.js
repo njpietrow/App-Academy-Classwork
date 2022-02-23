@@ -29,5 +29,4 @@ Asteroid.prototype.collideWith = function(otherObject) {
   }
 }
 
-
 module.exports = Asteroid;

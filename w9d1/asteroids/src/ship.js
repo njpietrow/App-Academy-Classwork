@@ -26,5 +26,4 @@ Ship.prototype.relocate = function() {
   this.vel = [0, 0]
 }
 
-
 module.exports = Ship;
