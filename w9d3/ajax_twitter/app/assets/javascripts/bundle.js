@@ -106,6 +106,7 @@ const APIUtil = {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 const APIUtil = __webpack_require__(/*! ./twitter_api_util */ "./frontend/twitter_api_util.js");
+const FollowToggle =  __webpack_require__(/*! ./follow_toggle.js */ "./frontend/follow_toggle.js");
 
 function UsersSearch(el) {
   this.$el = $(el);
@@ -128,22 +129,25 @@ UsersSearch.prototype.handleInput = function(){
 
 UsersSearch.prototype.renderResults = function(users){
   this.$ul.empty();
+
   users.forEach(user => {
-    // console.log(user);
-    // console.log(this.$ul);
+    let string = "";
+    
+    if (user.followed) string = "Unfollow!"
+    else string = "Follow!"
+    
+    let $button = $(`<button>${string}</button>`) //to implement later. Should be a follow toggle plugin
 
     let $li = $("<li></li>");
     let $a = $("<a></a>");
+
     $a.attr("href", `/users/${user.id}`);
     $a.html(`${user.username}`);
 
     $li.append($a);
+    $li.append($button);
     this.$ul.append($li);
-
   })
-  // console.log(users);
-
-
 }
 
 module.exports = UsersSearch;
