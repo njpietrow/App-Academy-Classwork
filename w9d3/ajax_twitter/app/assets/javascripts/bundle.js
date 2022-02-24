@@ -83,6 +83,15 @@ const APIUtil = {
                 url: `/users/${id}/follow`,
                 dataType: 'JSON'
           })
+    },
+
+    searchUsers: queryVal => {
+         return $.ajax({
+                  method: "GET",
+                  url: `/users/search`,
+                  data: {query: queryVal},
+                  dataType: 'JSON'
+            })
     }
   };
   
@@ -94,13 +103,48 @@ const APIUtil = {
 /*!**********************************!*\
   !*** ./frontend/users_search.js ***!
   \**********************************/
-/***/ ((module) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-function UsersSearch() {
+const APIUtil = __webpack_require__(/*! ./twitter_api_util */ "./frontend/twitter_api_util.js");
 
+function UsersSearch(el) {
+  this.$el = $(el);
+  this.$input = this.$el.find(".search-bar")
+  this.$ul = this.$el.find(".users")
+  //listener for new keys entered into input bar (handleInput callback)
+  this.$el.on("keyup", this.handleInput.bind(this));
 }
 
+UsersSearch.prototype.handleInput = function(){
+  // console.log("you are typing...")
+  APIUtil.searchUsers(this.$input.val())
+    .then(res => {
+      // console.log(res);
+      //get users out of results
+      // let $users = res.responseJSON;
+      this.renderResults(res)
+    }) 
+}
 
+UsersSearch.prototype.renderResults = function(users){
+  this.$ul.empty();
+  users.forEach(user => {
+    // console.log(user);
+    // console.log(this.$ul);
+
+    let $li = $("<li></li>");
+    let $a = $("<a></a>");
+    $a.attr("href", `/users/${user.id}`);
+    $a.html(`${user.username}`);
+
+    $li.append($a);
+    this.$ul.append($li);
+
+  })
+  // console.log(users);
+
+
+}
 
 module.exports = UsersSearch;
 
@@ -150,7 +194,14 @@ $(() => {
     FTButtons.push( new FollowToggle(ele));
   })
 
-  console.log(FTButtons[0]);
+  let $search = $(".users-search");
+
+  let nav = new UsersSearch($search[0])
+  
+  console.log(nav)
+
+
+  // console.log(FTButtons[0]);
 })
 })();
 

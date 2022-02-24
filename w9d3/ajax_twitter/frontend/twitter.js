@@ -9,5 +9,12 @@ $(() => {
     FTButtons.push( new FollowToggle(ele));
   })
 
-  console.log(FTButtons[0]);
+  let $search = $(".users-search");
+
+  let nav = new UsersSearch($search[0])
+  
+  console.log(nav)
+
+
+  // console.log(FTButtons[0]);
 })
