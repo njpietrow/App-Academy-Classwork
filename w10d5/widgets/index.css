@@ -1,0 +1,26 @@
+@import url("frontend/reset.css");
+
+.title {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.time-wrapper, .date-wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.clock {
+  background-color: rgb(166, 252, 252);
+  width: 30%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.clock-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
