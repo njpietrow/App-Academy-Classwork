@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./Header";
 
 class Tabs extends React.Component {
   constructor(props){
@@ -6,19 +7,29 @@ class Tabs extends React.Component {
     this.state = {
       selectedIndex: 0
     }
+
+    this.setIdx = this.setIdx.bind(this);
+  }
+
+  setIdx(idx){
+    this.setState({selectedIndex: idx})
   }
 
   render(){
-    const tabs = this.props.tabs.map(tab => {
+    const tabs = this.props.tabs.map((tab,idx) => {
       return(
-        <h1></h1>
-      )
+        <Header key={tab.title} title={tab.title} 
+          content={tab.content} idx={idx} 
+          setIdx={this.setIdx}
+        />
+      );
     });
 
     return(
-      <div>
+      <div className="tab-container">
         <h1>Tabs</h1>
-        <ul>
+        <p>Selected: {this.state.selectedIndex}</p>
+        <ul className="tabs">
           {tabs}
         </ul>
       </div>

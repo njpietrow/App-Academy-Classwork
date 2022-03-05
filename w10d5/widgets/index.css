@@ -1,7 +1,11 @@
-@import url("frontend/reset.css");
+@import url("styles/reset.css");
 
-.title {
+body {
   font-family: 'Roboto Mono', monospace;
+}
+
+h1 {
+  font-size: 24px;
 }
 
 .time-wrapper, .date-wrapper {
@@ -12,7 +16,7 @@
 
 .clock {
   background-color: rgb(166, 252, 252);
-  width: 30%;
+  width: 300px;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid black;
