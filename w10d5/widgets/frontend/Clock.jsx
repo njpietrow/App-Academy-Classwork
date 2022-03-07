@@ -41,7 +41,6 @@ class Clock extends React.Component {
           </div>
         </div>
       </div>
-        //TODO add date later
     );
   }
 }

@@ -22,9 +22,61 @@ h1 {
   border: 1px solid black;
 }
 
-.clock-wrapper {
+#root, .clock-wrapper, .tab-wrapper{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 10px;
 }
+
+.headers {
+  display: flex;
+}
+
+.header {
+  background-color: rgb(166, 252, 169);
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.header:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.active {
+  font-weight: bold;
+  border-bottom: none;
+} 
+
+.tab-container {
+  background-color: rgb(166, 252, 169);
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.content-wrapper {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+article {
+  border: 1px solid red;
+  margin: 5px;
+  border: 0;
+  padding: 0;
+  text-align: center;
+}
+
+
+

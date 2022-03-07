@@ -6,9 +6,9 @@ const Root = () => (
   <div>
     <Clock />
     <Tabs tabs={[
-      {title: "one", content: "I am one"}, 
-      {title: "two", content: "I am two"},
-      {title: "three", content: "I am three"}
+      {title: "one", content: "I am one, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"}, 
+      {title: "two", content: "I am two, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"},
+      {title: "three", content: "I am three, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"}
     ]}/>
   </div>
 );

@@ -8,17 +8,16 @@ class Header extends React.Component {
   }
 
   updateIdx(){
-    // debugger
     this.props.setIdx(this.props.idx)
   }
 
   render(){
-    let {title, content} = this.props;
+    let {title, selIdx, idx} = this.props;
+    let active = "";
+    (selIdx === idx) ? active = "active" : "";
     return (
-      <li key={title} onClick={this.updateIdx}>
-        <h2>{title}</h2>
-        <article>{content}</article>
-      </li>
+      <span className={"header " + active} key={title} 
+      onClick={this.updateIdx}>{title}</span>
     )
   }
 }

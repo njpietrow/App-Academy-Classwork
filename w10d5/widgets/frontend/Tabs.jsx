@@ -16,22 +16,30 @@ class Tabs extends React.Component {
   }
 
   render(){
-    const tabs = this.props.tabs.map((tab,idx) => {
+    const selIdx = this.state.selectedIndex;
+    const content = this.props.tabs[selIdx].content
+    
+
+    const headers = this.props.tabs.map((tab,idx) => {
       return(
-        <Header key={tab.title} title={tab.title} 
-          content={tab.content} idx={idx} 
+        <Header selIdx={selIdx} key={tab.title} title={tab.title} idx={idx} 
           setIdx={this.setIdx}
         />
       );
     });
 
+
     return(
-      <div className="tab-container">
-        <h1>Tabs</h1>
-        <p>Selected: {this.state.selectedIndex}</p>
-        <ul className="tabs">
-          {tabs}
-        </ul>
+      <div className="tab-wrapper">
+        <h1>I Am Tabs</h1>
+        <div className="tab-container">
+          <ul className="headers">
+            {headers}
+          </ul>
+          <div className="content-wrapper">
+            <article>{content}</article>
+          </div>
+        </div>
       </div>
     )
   }
