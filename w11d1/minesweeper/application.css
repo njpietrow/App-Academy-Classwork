@@ -1,0 +1,22 @@
+.row {
+    display: flex;
+    font-size: 40px;
+}
+
+.tile {
+    border: 4px solid lightgray;
+    height: 40px;
+    width: 40px;
+    border-style: outset;
+    background: lightgray;
+    margin: 0.5px;
+}
+
+.revealed {
+    border-style: inset;
+    background: rgb(187, 187, 187);
+}
+
+.board {
+    padding: 20px;
+}

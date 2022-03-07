@@ -1,5 +1,6 @@
 import React from "react"
 import * as Minesweeper from "./../minesweeper"
+import Board from "./board"
 
 class Game extends React.Component{
   constructor(props){
@@ -8,15 +9,31 @@ class Game extends React.Component{
     this.updateGame = this.updateGame.bind(this);
   }
 
-  updateGame(){
-
+  updateGame(tile, revealing){
+    if (revealing) {
+      tile.explore()
+    }
+    else {
+      tile.toggleFlag()
+    }
+    this.setState({ board: this.state.board })
   }
 
   render(){
-    const board = this.state.board;
+    // const {board} = this.state;
+    let result = "";
+    if (this.state.board.won()) {
+      result = "Congrats!"
+    }
+    else if (this.state.board.lost()) {
+      result = "You lost!"
+    }
+
     return (
-      // <div> hello </div>
-      <Board board={board} updateGame={this.updateGame}/>
+      <div> 
+        {result}
+        <Board board={this.state.board} updateGame={this.updateGame}/>
+      </div>
     )
   }
 
