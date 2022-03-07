@@ -19,13 +19,11 @@ class Tile extends React.Component {
         let display;
         let displayClass = "";
         if (this.props.tile.explored) {
+            displayClass = "revealed";
             if (this.props.tile.bombed) {
-                displayClass = "bombed";
                 display = "💣";
             }
             else {
-               
-                displayClass = "revealed";
                 display = this.props.tile.adjacentBombCount() || " ";
             }
         }

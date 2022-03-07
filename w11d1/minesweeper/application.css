@@ -1,9 +1,10 @@
 .row {
     display: flex;
-    font-size: 40px;
 }
 
 .tile {
+    font-size: 30px;
+    text-align: center;
     border: 4px solid lightgray;
     height: 40px;
     width: 40px;
@@ -17,6 +18,48 @@
     background: rgb(187, 187, 187);
 }
 
+.board-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding-top: 100px; */
+}
+
 .board {
     padding: 20px;
+}
+
+.modal-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgb(78, 78, 255, .5);
+}
+
+.modal-content {
+/*     position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-right: auto;
+    transform: translateY(-50%); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 200px;
+    height: 100px;
+    padding: 50px;
+    background-color: rgb(255, 255, 255);
+    z-index: 3;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
