@@ -1,5 +1,5 @@
 import React from "react";
-import { receiveStep } from "../../actions/step_actions";
+// import { receiveStep } from "../../actions/step_actions";
 
 
 class StepListItem extends React.Component{
@@ -9,13 +9,12 @@ class StepListItem extends React.Component{
   }
 
   toggleDone(e){
-    let {receiveTodo} = this.props;
-    let newObj = {done: !step.done}
-    let newStep = {
-        ...step,
-        ...newObj
-    }
-   receiveStep(newStep);
+    const toggledStep = Object.assign(
+      {},
+      this.props.step,
+      { done: !this.props.step.done}
+    );
+    this.props.receiveStep(toggledStep);
   }
 
   render(){
@@ -23,11 +22,14 @@ class StepListItem extends React.Component{
 
     return(
       <div>
-        Step Title: {step.title} Step Body: {step.body} 
+        Step Title: {step.title}
         <br />
-        <button onClick={this.toggleDone}> Toggle Step </button> 
-
+        Step Body: {step.body} 
+        <br />
+        <button onClick={this.toggleDone}> {step.done ? "Undo" : "Done"} </button> 
       </div>
     )
   }
 }
+
+export default StepListItem;

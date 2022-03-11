@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import StepListItem from './step_list_item';
-import { removeStep, receiveStep } from '../../actions/todo_actions';
+import { removeStep, receiveStep } from '../../actions/step_actions';
 
 
 function mapDispatchToProps(dispatch) {
