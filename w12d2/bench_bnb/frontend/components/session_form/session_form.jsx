@@ -11,6 +11,16 @@ class SessionForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillMount(){
+    this.unlisten = this.props.history.listen(() => {
+      this.props.clearSessionErrors();
+    });
+  }
+
+  componentWillUnmount() {
+    this.unlisten();
+  }
+
   handleSubmit(e){
     e.preventDefault()
     const user = Object.assign({}, this.state);
