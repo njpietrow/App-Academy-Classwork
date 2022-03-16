@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class SessionForm extends React.Component{
   constructor(props) {
@@ -11,7 +11,7 @@ class SessionForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.unlisten = this.props.history.listen(() => {
       this.props.clearSessionErrors();
     });
@@ -66,6 +66,7 @@ class SessionForm extends React.Component{
               value={this.state.username}
             />
           </label>
+          <br />
           <label>Password:
             <input 
               type="password" 
@@ -73,6 +74,7 @@ class SessionForm extends React.Component{
               value={this.state.password}
             />
           </label>
+          <br />
           <input type="submit" value={formType}/>
         </form>
       </div>

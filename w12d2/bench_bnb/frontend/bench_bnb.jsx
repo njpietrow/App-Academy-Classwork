@@ -31,6 +31,23 @@ document.addEventListener("DOMContentLoaded", () => {
   window.signup = signup;
   window.login = login;
   window.logout = logout;
+
+  window.getBenches = () => $.ajax({ 
+    method: "GET",
+    url: "/api/benches/"
+  });
+
+  window.createBench = () => $.ajax({ 
+    method: "POST",
+    url: "/api/benches/",
+    data: {
+      bench: {
+        description: "bench3",
+        lat: 100,
+        lng: 200
+      }
+    }
+  });
   // window.store = store;
   window.getState = store.getState;
   window.dispatch = store.dispatch;  
