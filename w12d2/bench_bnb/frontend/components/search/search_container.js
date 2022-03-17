@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchBenches } from "../actions/bench_actions";
+import { fetchBenches } from "../../actions/bench_actions";
 import Search from "./search"
 
 const mSTP = state => ({

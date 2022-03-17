@@ -11,17 +11,17 @@ class Greeting extends React.Component{
 
     if (currentUser) {
       return (
-        <div>
+        <nav>
           <span>{`Welcome, ${currentUser.username}`}</span>
           <button onClick={()=>logout()}>Logout</button>
-        </div>
+        </nav>
       )
     } else {
       return (
-        <div>
+        <nav>
           <Link to="/signup">Sign up</Link>
           <Link to="/login">Login</Link>
-        </div>
+        </nav>
       )
     }
   }

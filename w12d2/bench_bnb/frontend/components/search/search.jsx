@@ -1,5 +1,5 @@
 import React from "react";
-import BenchMap from "./bench_map";
+import BenchMap from "../map/bench_map";
 import BenchIndex from "./bench_index";
 
 class Search extends React.Component{
@@ -8,7 +8,7 @@ class Search extends React.Component{
     console.log(this.props)
     return (
       <div>
-        <BenchMap />
+        <BenchMap benches={benches} />
         <BenchIndex benches={benches} fetchBenches={fetchBenches} />
       </div>
     )
