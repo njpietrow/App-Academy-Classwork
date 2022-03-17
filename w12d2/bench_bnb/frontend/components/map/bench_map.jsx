@@ -2,15 +2,22 @@ import React from "react";
 import MarkerManager from "../../util/marker_manager";
 
 class BenchMap extends React.Component{
+
   componentDidMount() {
+    
     // set the map to show West LA
     const mapOptions = {
       center: { lat: 34.043064, lng: -118.43649 }, // this is LA
       zoom: 13
     };
-
+    
     // wrap this.mapNode in a Google Map
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+    
+    // debugger
+    //fench benches to display
+    //TODO: remove hardcoded bounds from bench controller.
+    this.props.fetchBenches(filters);
 
     //create new MarkerManager instance. update Markers upon mounting
     this.MarkerManager = new MarkerManager(this.map);

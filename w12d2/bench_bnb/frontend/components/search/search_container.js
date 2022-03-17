@@ -7,7 +7,7 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-  fetchBenches: () => dispatch(fetchBenches())
+  fetchBenches: (filters) => dispatch(fetchBenches(filters))
 });
 
 export default connect(mSTP, mDTP)(Search)
