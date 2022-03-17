@@ -12,6 +12,6 @@ Bench.destroy_all
 User.create(username: "test", password: "password")
 User.create(username: "hello", password: "password")
 
-Bench.create(description: "bench 1", lat: 34.038837, lng: -118.453831)
-Bench.create(description: "bench 2", lat: 34.036053, lng: -118.479399)
+Bench.create(description: "bench 1", lat: 34.038837, lng: -118.453831, seating: 4)
+Bench.create(description: "bench 2", lat: 34.036053, lng: -118.479399, seating: 3)
 

@@ -6,3 +6,12 @@ export const fetchBenches = (bounds) => {
     error: (err) => console.log(err)
   })
 };
+
+export const createBench = bench => {
+  debugger
+  return $.ajax({ 
+    method: "POST",
+    url: "/api/benches/",
+    data: { bench }
+  })
+};

@@ -35,17 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.fetchBenches = fetchBenches;
 
-  window.createBench = () => $.ajax({ 
-    method: "POST",
-    url: "/api/benches/",
-    data: {
-      bench: {
-        description: "bench3",
-        lat: 100,
-        lng: 200
-      }
-    }
-  });
   // window.store = store;
   window.getState = store.getState;
   window.dispatch = store.dispatch;  
