@@ -6,6 +6,7 @@ import configureStore from "./store/store";
 // for testing
 // import { signUp, logIn, logOut} from './util/session_api_util'
 import { login, logout, signup } from "./actions/session_actions";
+import {fetchBenches} from "./actions/bench_actions"
 // end testing
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -32,10 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = login;
   window.logout = logout;
 
-  window.getBenches = () => $.ajax({ 
-    method: "GET",
-    url: "/api/benches/"
-  });
+  window.fetchBenches = fetchBenches;
 
   window.createBench = () => $.ajax({ 
     method: "POST",
