@@ -27,22 +27,6 @@ class BenchForm extends React.Component{
           />
         </label>
         <br />
-        <label>Lattitude: 
-          <input 
-            type="text" 
-            onChange={this.update("lat")}
-            value={this.state.lat}
-          />
-        </label>
-        <br />
-        <label>Longitude:
-          <input 
-            type="text" 
-            onChange={this.update("lng")}
-            value={this.state.lng}
-          />
-        </label>
-        <br />
         <label>Number of Seats:
           <input 
             type="text" 
@@ -51,7 +35,26 @@ class BenchForm extends React.Component{
           />
         </label>
         <br />
-        <input type="submit" value={"Add a Bench"} />
+
+        <label>Lattitude: 
+          <input 
+            disabled
+            type="text" 
+            onChange={this.update("lat")}
+            value={this.state.lat}
+          />
+        </label>
+        <br />
+        <label>Longitude:
+          <input 
+            disabled
+            type="text" 
+            onChange={this.update("lng")}
+            value={this.state.lng}
+          />
+        </label>
+        <br />
+        <input type="submit" value={"Add Bench"} />
       </form>
     )
   }

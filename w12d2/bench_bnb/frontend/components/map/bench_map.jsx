@@ -4,6 +4,19 @@ import { withRouter } from "react-router-dom";
 
 class BenchMap extends React.Component{
 
+  constructor(props){
+    super(props)
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(coords){
+    this.props.history.push({
+      pathname: "benches/new",
+      search: `lat=${coords.lat}&lng=${coords.lng}`
+    });
+  }
+
+  //LIFECYCLE METHODs
   componentDidMount() {
     
     // set the map to show West LA
@@ -15,7 +28,8 @@ class BenchMap extends React.Component{
     // wrap this.mapNode in a Google Map
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     
-    this.unlisten = this.map.addListener("idle", (e) => {
+    //add listener to update map bounds when stop moving
+    this.map.addListener("idle", (e) => {
       const latLngBounds = this.map.getBounds();
       const northEast = latLngBounds.getNorthEast();
       const southWest = latLngBounds.getSouthWest();
@@ -30,8 +44,14 @@ class BenchMap extends React.Component{
         }
       }
       this.props.updateFilter("bounds", bounds);
-      //TODO: add testing for limiting benches in markers, state, and map to be only in bounds.
     })
+
+    //add listener to send coordinates in query parameter when clicking on map.
+    this.map.addListener("click", (mapsMouseEvent) => {
+      const latLng = mapsMouseEvent.latLng
+      const coords = {lat: latLng.lat(), lng: latLng.lng()}
+      this.handleClick(coords);
+    });
 
     //create new MarkerManager instance. update Markers upon mounting
     this.MarkerManager = new MarkerManager(this.map);

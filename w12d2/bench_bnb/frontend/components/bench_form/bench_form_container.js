@@ -3,14 +3,17 @@ import BenchForm from "./bench_form";
 import { createBench } from "../../actions/bench_actions";
 
 
-const mSTP = (state) => ({
-  bench: {
-    description: "",
-    lat: "",
-    lng: "",
-    seating: "",
+const mSTP = (state, ownProps) => {
+  const {location} = ownProps;
+  return {
+    bench: {
+      description: "",
+      lat: new URLSearchParams(location.search).get("lat"),
+      lng: new URLSearchParams(location.search).get("lng"),
+      seating: "",
+    }
   }
-});
+};
 
 const mDTP = dispatch => ({
   createBench: (bench) => dispatch(createBench(bench))
