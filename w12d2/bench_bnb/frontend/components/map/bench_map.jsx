@@ -28,14 +28,9 @@ class BenchMap extends React.Component{
           lng: southWest.lng()
         }
       }
-      this.props.updateBounds(bounds);
+      this.props.updateFilter("bounds", bounds);
+      //TODO: add testing for limiting benches in markers, state, and map to be only in bounds.
     })
-
-    // debugger
-    //fench benches to display
-    //TODO: remove hardcoded bounds from bench controller.
-    let filters;
-    this.props.fetchBenches(filters);
 
     //create new MarkerManager instance. update Markers upon mounting
     this.MarkerManager = new MarkerManager(this.map);

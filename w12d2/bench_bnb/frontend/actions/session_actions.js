@@ -31,7 +31,7 @@ export const clearSessionErrors = () => {
   return {
     type: CLEAR_SESSION_ERRORS
   }
-}
+};
 
 // THUNK ACTION CREATORS
 export const login = (user) => dispatch => {

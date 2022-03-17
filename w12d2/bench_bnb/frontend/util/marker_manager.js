@@ -7,6 +7,16 @@ class MarkerManager{
   updateMarkers(benches){
     //for each bench, if the id is not in this.markers, create a new marker 
     //add it to the map and add it to this.markers
+    const benchesObj = Object.assign({}, benches)
+    window.markersTemp = this.markers;
+
+    Object.keys(this.markers).forEach(markerId => {
+      if(!benchesObj[markerId]){
+        this.markers[markerId].setMap(null)
+        delete this.markers[markerId];
+      }
+    })
+
     benches.forEach(bench => {
       if(!this.markers[bench.id]){
         this.createMarkerFromBench(bench)
