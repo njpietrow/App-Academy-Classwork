@@ -8,7 +8,6 @@ export const fetchBenches = (bounds) => {
 };
 
 export const createBench = bench => {
-  debugger
   return $.ajax({ 
     method: "POST",
     url: "/api/benches/",

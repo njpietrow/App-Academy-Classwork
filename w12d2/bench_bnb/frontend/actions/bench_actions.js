@@ -10,7 +10,6 @@ export const receiveBenches = (benches) => ({
 })
 
 export const receiveBench = (bench) => {
-  debugger
   return {
     type: RECEIVE_BENCH,
     bench
@@ -23,7 +22,6 @@ export const fetchBenches = (filters) => dispatch => {
 }
 
 export const createBench = (bench) => dispatch => {
-  debugger
   return BenchAPIUtil.createBench(bench)
     .then(bench => dispatch(receiveBench(bench)))
 }

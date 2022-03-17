@@ -8,6 +8,7 @@ class BenchIndexItem extends React.Component{
         <span style={{ fontWeight: "bold" }} >{bench.description}</span>
         <p>Lat: {bench.lat}</p>
         <p>Lng: {bench.lng}</p>
+        <p>Number of seats: {bench.seating}</p>
       </li>
     )
   }

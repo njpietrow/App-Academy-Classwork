@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 
 class BenchForm extends React.Component{
   constructor(props){
@@ -14,6 +15,11 @@ class BenchForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     this.props.createBench(this.state)
+    this.navigateToSearch()
+  }
+
+  navigateToSearch() {
+    this.props.history.push('/');
   }
 
   render(){
