@@ -14,9 +14,27 @@ class BenchMap extends React.Component{
     // wrap this.mapNode in a Google Map
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     
+    this.unlisten = this.map.addListener("idle", (e) => {
+      const latLngBounds = this.map.getBounds();
+      const northEast = latLngBounds.getNorthEast();
+      const southWest = latLngBounds.getSouthWest();
+      const bounds = {
+        northEast: {
+          lat: northEast.lat(), 
+          lng: northEast.lng()
+          },
+        southWest: {
+          lat: southWest.lat(), 
+          lng: southWest.lng()
+        }
+      }
+      this.props.updateBounds(bounds);
+    })
+
     // debugger
     //fench benches to display
     //TODO: remove hardcoded bounds from bench controller.
+    let filters;
     this.props.fetchBenches(filters);
 
     //create new MarkerManager instance. update Markers upon mounting

@@ -7,8 +7,6 @@ class MarkerManager{
   updateMarkers(benches){
     //for each bench, if the id is not in this.markers, create a new marker 
     //add it to the map and add it to this.markers
-    console.log("time to udpate");
-
     benches.forEach(bench => {
       if(!this.markers[bench.id]){
         this.createMarkerFromBench(bench)

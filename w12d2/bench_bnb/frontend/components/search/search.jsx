@@ -5,11 +5,14 @@ import BenchIndex from "./bench_index";
 class Search extends React.Component{
 
   render(){
-    const{benches, fetchBenches} = this.props;
-    console.log(this.props)
+    const{benches, fetchBenches, updateBounds} = this.props;
     return (
       <div>
-        <BenchMap benches={benches} fetchBenches={fetchBenches} />
+        <BenchMap 
+          benches={benches} 
+          fetchBenches={fetchBenches} 
+          updateBounds={updateBounds}
+        />
         <BenchIndex benches={benches}  />
       </div>
     )
