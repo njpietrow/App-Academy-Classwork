@@ -12,15 +12,15 @@ class Greeting extends React.Component{
     if (currentUser) {
       return (
         <nav>
-          <span>{`Welcome, ${currentUser.username}`}</span>
-          <button onClick={()=>logout()}>Logout</button>
+            <div className="header-content">{`Welcome, ${currentUser.username}`}</div>
+            <button onClick={()=>logout()}>Logout</button>
         </nav>
       )
     } else {
       return (
         <nav>
-          <Link to="/signup">Sign up</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/signup" className="header-content">Sign up</Link>
+          <Link to="/login" className="header-content">Login</Link>
         </nav>
       )
     }

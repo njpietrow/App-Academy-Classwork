@@ -10,7 +10,7 @@ const mSTP = (state, ownProps) => {
       description: "",
       lat: new URLSearchParams(location.search).get("lat"),
       lng: new URLSearchParams(location.search).get("lng"),
-      seating: "",
+      seating: 1,
     }
   }
 };

@@ -1,4 +1,5 @@
 import * as BenchAPIUtil from "../util/bench_api_util"
+import { updateFilter, UPDATE_FILTER } from "./filter_actions";
 
 export const RECEIVE_BENCHES = "RECEIVE_BENCHES";
 export const RECEIVE_BENCH = "RECEIVE_BENCH";
@@ -15,6 +16,14 @@ export const receiveBench = (bench) => {
     bench
   }
 }
+
+// export const updateFilter = (filter, value) => {
+//   return {
+//     type: UPDATE_FILTER,
+//     filter,
+//     value
+//   }
+// }
 
 export const fetchBenches = (filters) => dispatch => {
   return BenchAPIUtil.fetchBenches(filters)

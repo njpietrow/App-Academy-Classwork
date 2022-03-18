@@ -29,4 +29,10 @@
 
  nav {
    margin-bottom: 10px;
+   display: flex;
+   justify-content: end;
+ }
+
+ .header-content{
+   margin-right: 8px;
  }

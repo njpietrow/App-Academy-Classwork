@@ -27,7 +27,7 @@ class BenchForm extends React.Component{
       <form onSubmit={this.handleSubmit}>
         <label>Description:
           <input 
-            type="text" 
+            type="text"
             onChange={this.update("description")}
             value={this.state.description}
           />
@@ -60,6 +60,7 @@ class BenchForm extends React.Component{
           />
         </label>
         <br />
+        
         <input type="submit" value={"Add Bench"} />
       </form>
     )

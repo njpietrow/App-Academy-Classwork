@@ -1,15 +1,14 @@
 import { connect } from "react-redux";
-import { fetchBenches } from "../../actions/bench_actions";
-import { updateBounds } from "../../actions/filter_actions";
 import { updateFilter } from "../../actions/filter_actions";
 import Search from "./search"
 
 const mSTP = state => ({
-  benches: Object.values(state.entities.benches)
+  benches: Object.values(state.entities.benches),
+  minSeating: state.ui.filters.minSeating,
+  maxSeating: state.ui.filters.maxSeating,
 });
 
 const mDTP = dispatch => ({
-  // fetchBenches: (filters) => dispatch(fetchBenches(filters)),
   updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
 });
 
